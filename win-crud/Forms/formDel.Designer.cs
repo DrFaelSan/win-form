@@ -45,13 +45,15 @@ partial class FormDel
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(500, 500);
+        BackColor = Color.FromArgb(196, 210, 245);
+        ClientSize = new Size(804, 630);
         Controls.Add(label1);
         FormBorderStyle = FormBorderStyle.None;
+        MinimumSize = new Size(804, 630);
         Name = "FormDel";
         Text = "formDel";
         TransparencyKey = Color.White;
-        Load += formDel_Load;
+        Load += FormDel_Load;
         ResumeLayout(false);
         PerformLayout();
     }

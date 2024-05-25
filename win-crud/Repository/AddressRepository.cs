@@ -11,67 +11,76 @@ public class AddressRepository : IAddressRepository
     public AddressRepository(SQLServerContext context)
         =>  _context = context;
 
-    public async Task<Address> CreateAsync(Address address)
+    public Address? Create(Address address)
     {
-        _context.Address.Add(address);
-        await _context.SaveChangesAsync();
-        return address;
+        var sql = $"INSERT INTO {nameof(Address)} "+@"(ZipCode, Street, City, State, Country, Number, UF, PersonId)
+            VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})
+            ";
+
+        int rowsAffected = _context.Database.ExecuteSqlRaw(sql,
+            address.ZipCode,
+            address.Street,
+            address.City ?? string.Empty,
+            address.State ?? string.Empty,
+            address.Country ?? string.Empty,
+            address.Number ?? string.Empty,
+            address.UF ?? string.Empty,
+            address.PersonId);
+
+        return rowsAffected > 0 ? address : null;
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public bool DeleteByPersonId(int personId)
     {
-        Address? address = await GetByIdAsync(id);
+        var sql = $"DELETE FROM {nameof(Address)} " + @"
+            WHERE PersonId = {0}
+        ";
 
-        if (address is null) return false;
+        int rowsAffected = _context.Database.ExecuteSqlRaw(sql, personId);
 
-        _context.Address.Remove(address);
-        return await _context.SaveChangesAsync() > 0;
+        return rowsAffected > 0;
     }
 
-    public async Task<bool> DeleteByPersonIdAsync(int personId)
+    public Address? FindByPersonId(int personId)
+        => _context.Address.AsNoTracking()
+                           .FirstOrDefault(a => a.PersonId == personId);
+    public IEnumerable<Address> GetAll()
+        => _context.Address.ToList();
+
+    public Address? UpdateByPersonId(int personId, Address address)
     {
-        Address? address = await FindByPersonIdAsync(personId);
+        var exists = _context.Address.AsNoTracking()
+                                              .Any(a => a.PersonId == personId);
 
-        if (address is null) return false;
-
-        _context.Address.Remove(address);
-        return await _context.SaveChangesAsync() > 0;
-    }
-
-    public async Task<Address?> FindByPersonIdAsync(int personId)
-        => await _context.Address.AsNoTracking()
-                                 .FirstOrDefaultAsync(a => a.PersonId == personId);
-
-    public async Task<IEnumerable<Address>> GetAllAsync()
-        => await _context.Address.ToListAsync();
-
-    public async Task<Address?> UpdateAsync(int id, Address address)
-    {
-        if(await _context.Address.AnyAsync(a => a.Id == id))
+        if (exists)
         {
-            address.Id = id;
-            _context.Address.Update(address);
-            await _context.SaveChangesAsync();
-            return address;
+            var sql = $"UPDATE {nameof(Address)} " +@"
+                    SET  ZipCode = {0}, 
+                         Street = {1}, 
+                         City = {2}, 
+                         State = {3}, 
+                         Country = {4}, 
+                         Number = {5}, 
+                         UF = {6}
+                    WHERE PersonId = {7}
+                    ";
+
+            int rowsAffected = _context.Database.ExecuteSqlRaw(sql,
+                address.ZipCode,
+                address.Street,
+                address.City ?? string.Empty,
+                address.State ?? string.Empty,
+                address.Country ?? string.Empty,
+                address.Number ?? string.Empty,
+                address.UF ?? string.Empty,
+                personId);
+
+            return rowsAffected > 0 ? address : null;
         }
         return null;
     }
 
-    public async Task<Address?> UpdateByPersonIdAsync(int personId, Address address)
-    {
-        Address? addressOnBase = await FindByPersonIdAsync(personId);
-        if (addressOnBase is Address)
-        {
-            addressOnBase.PersonId = personId;
-            _context.Address.Update(addressOnBase);
-            await _context.SaveChangesAsync();
-            return address;
-        }
-
-        return null;
-    }
-
-    protected async Task<Address?> GetByIdAsync(int id)
-        => await _context.Address.AsNoTracking()
-                                 .FirstOrDefaultAsync(a => a.Id == id);
+    protected Address? GetById(int id)
+        => _context.Address.AsNoTracking()
+                           .FirstOrDefault(a => a.Id == id);
 }

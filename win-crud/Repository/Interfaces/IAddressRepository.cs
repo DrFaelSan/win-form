@@ -3,11 +3,9 @@
 namespace win_crud.Repository.Interfaces;
 public interface IAddressRepository
 {
-    Task<Address?> FindByPersonIdAsync(int personId);
-    Task<Address> CreateAsync(Address address);
-    Task<IEnumerable<Address>> GetAllAsync();
-    Task<bool> DeleteAsync(int id);
-    Task<bool> DeleteByPersonIdAsync(int personId);
-    Task<Address?> UpdateAsync(int id, Address address);
-    Task<Address?> UpdateByPersonIdAsync(int personId, Address address);
+    Address? FindByPersonId(int personId);
+    Address? Create(Address address);
+    IEnumerable<Address> GetAll();
+    public bool DeleteByPersonId(int personId);
+    Address? UpdateByPersonId(int personId, Address address);
 }

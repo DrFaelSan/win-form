@@ -11,9 +11,7 @@ public class AddressMap : IEntityTypeConfiguration<Address>
         builder.Property(a => a.Id).ValueGeneratedOnAdd();
         builder.Property(a => a.Street).IsRequired();
         builder.Property(a => a.City).IsRequired();
-        builder.Property(a => a.Country).IsRequired();
         builder.Property(a => a.State).IsRequired();
-
-        builder.HasOne(a => a.Person).WithOne(p => p.Address);
+        builder.Property(a => a.Number).IsRequired();
     }
 }

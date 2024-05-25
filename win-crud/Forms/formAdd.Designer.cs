@@ -28,26 +28,17 @@ partial class FormAdd
     /// </summary>
     private void InitializeComponent()
     {
-        lblTitle = new Label();
-        btnSave = new Button();
-        gpPersonRegister = new GroupBox();
-        txtEmail = new TextBox();
-        label2 = new Label();
-        label8 = new Label();
-        label4 = new Label();
-        txtLastName = new TextBox();
-        label6 = new Label();
-        label3 = new Label();
-        label7 = new Label();
-        mtbDocument = new MaskedTextBox();
-        txtName = new TextBox();
+        panel1 = new Panel();
+        lblSubTitle2 = new Label();
+        lblSubTitle = new Label();
+        mtbCelPhone = new MaskedTextBox();
         mtbPhone = new MaskedTextBox();
-        mtbAge = new MaskedTextBox();
-        gpAddresRegister = new GroupBox();
+        txtCountry = new TextBox();
+        lblCountry = new Label();
         txtNumber = new TextBox();
         lblNumber = new Label();
         txtUF = new TextBox();
-        label1 = new Label();
+        lblUF = new Label();
         txtState = new TextBox();
         lblState = new Label();
         txtCity = new TextBox();
@@ -56,343 +47,464 @@ partial class FormAdd
         lblStreet = new Label();
         lblZipCode = new Label();
         mtbZipCode = new MaskedTextBox();
-        gpPersonRegister.SuspendLayout();
-        gpAddresRegister.SuspendLayout();
+        label17 = new Label();
+        lblCelPhone = new Label();
+        lblFirstName = new Label();
+        txtEmail = new TextBox();
+        mtbAge = new MaskedTextBox();
+        lblEmail = new Label();
+        txtFirstName = new TextBox();
+        lblAge = new Label();
+        mtbCPF = new MaskedTextBox();
+        txtLastName = new TextBox();
+        lblCPF = new Label();
+        lblPhone = new Label();
+        lblLastName = new Label();
+        btnSave = new Button();
+        panel1.SuspendLayout();
         SuspendLayout();
         // 
-        // lblTitle
+        // panel1
         // 
-        lblTitle.Anchor = AnchorStyles.Top;
-        lblTitle.AutoSize = true;
-        lblTitle.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-        lblTitle.Location = new Point(265, 9);
-        lblTitle.Name = "lblTitle";
-        lblTitle.Size = new Size(274, 38);
-        lblTitle.TabIndex = 0;
-        lblTitle.Text = "Cadastro de Pessoa";
+        panel1.BackColor = Color.FromArgb(128, 128, 255);
+        panel1.Controls.Add(lblSubTitle2);
+        panel1.Controls.Add(lblSubTitle);
+        panel1.Controls.Add(mtbCelPhone);
+        panel1.Controls.Add(mtbPhone);
+        panel1.Controls.Add(txtCountry);
+        panel1.Controls.Add(lblCountry);
+        panel1.Controls.Add(txtNumber);
+        panel1.Controls.Add(lblNumber);
+        panel1.Controls.Add(txtUF);
+        panel1.Controls.Add(lblUF);
+        panel1.Controls.Add(txtState);
+        panel1.Controls.Add(lblState);
+        panel1.Controls.Add(txtCity);
+        panel1.Controls.Add(lblCity);
+        panel1.Controls.Add(txtStreet);
+        panel1.Controls.Add(lblStreet);
+        panel1.Controls.Add(lblZipCode);
+        panel1.Controls.Add(mtbZipCode);
+        panel1.Controls.Add(label17);
+        panel1.Controls.Add(lblCelPhone);
+        panel1.Controls.Add(lblFirstName);
+        panel1.Controls.Add(txtEmail);
+        panel1.Controls.Add(mtbAge);
+        panel1.Controls.Add(lblEmail);
+        panel1.Controls.Add(txtFirstName);
+        panel1.Controls.Add(lblAge);
+        panel1.Controls.Add(mtbCPF);
+        panel1.Controls.Add(txtLastName);
+        panel1.Controls.Add(lblCPF);
+        panel1.Controls.Add(lblPhone);
+        panel1.Controls.Add(lblLastName);
+        panel1.Controls.Add(btnSave);
+        panel1.Dock = DockStyle.Fill;
+        panel1.Location = new Point(10, 10);
+        panel1.Margin = new Padding(0);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(784, 610);
+        panel1.TabIndex = 37;
         // 
-        // btnSave
+        // lblSubTitle2
         // 
-        btnSave.Anchor = AnchorStyles.Bottom;
-        btnSave.Location = new Point(265, 543);
-        btnSave.Name = "btnSave";
-        btnSave.Size = new Size(274, 57);
-        btnSave.TabIndex = 17;
-        btnSave.Text = "Salvar";
-        btnSave.UseVisualStyleBackColor = true;
+        lblSubTitle2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblSubTitle2.AutoSize = true;
+        lblSubTitle2.BackColor = Color.Transparent;
+        lblSubTitle2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+        lblSubTitle2.ForeColor = Color.White;
+        lblSubTitle2.Location = new Point(47, 311);
+        lblSubTitle2.Margin = new Padding(0);
+        lblSubTitle2.Name = "lblSubTitle2";
+        lblSubTitle2.Size = new Size(91, 25);
+        lblSubTitle2.TabIndex = 82;
+        lblSubTitle2.Text = "Endereço";
         // 
-        // gpPersonRegister
+        // lblSubTitle
         // 
-        gpPersonRegister.Anchor = AnchorStyles.Top;
-        gpPersonRegister.Controls.Add(txtEmail);
-        gpPersonRegister.Controls.Add(label2);
-        gpPersonRegister.Controls.Add(label8);
-        gpPersonRegister.Controls.Add(label4);
-        gpPersonRegister.Controls.Add(txtLastName);
-        gpPersonRegister.Controls.Add(label6);
-        gpPersonRegister.Controls.Add(label3);
-        gpPersonRegister.Controls.Add(label7);
-        gpPersonRegister.Controls.Add(mtbDocument);
-        gpPersonRegister.Controls.Add(txtName);
-        gpPersonRegister.Controls.Add(mtbPhone);
-        gpPersonRegister.Controls.Add(mtbAge);
-        gpPersonRegister.Location = new Point(24, 50);
-        gpPersonRegister.Name = "gpPersonRegister";
-        gpPersonRegister.Size = new Size(409, 475);
-        gpPersonRegister.TabIndex = 18;
-        gpPersonRegister.TabStop = false;
-        gpPersonRegister.Text = "Dados";
+        lblSubTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblSubTitle.AutoSize = true;
+        lblSubTitle.BackColor = Color.Transparent;
+        lblSubTitle.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+        lblSubTitle.ForeColor = Color.White;
+        lblSubTitle.Location = new Point(47, 59);
+        lblSubTitle.Margin = new Padding(0);
+        lblSubTitle.Name = "lblSubTitle";
+        lblSubTitle.Size = new Size(141, 25);
+        lblSubTitle.TabIndex = 81;
+        lblSubTitle.Text = "Dados pessoais";
         // 
-        // txtEmail
+        // mtbCelPhone
         // 
-        txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtEmail.Location = new Point(17, 199);
-        txtEmail.Name = "txtEmail";
-        txtEmail.PlaceholderText = "Digite seu e-mail";
-        txtEmail.Size = new Size(243, 27);
-        txtEmail.TabIndex = 30;
-        // 
-        // label2
-        // 
-        label2.AutoSize = true;
-        label2.Location = new Point(17, 40);
-        label2.Name = "label2";
-        label2.Size = new Size(50, 20);
-        label2.TabIndex = 19;
-        label2.Text = "Nome";
-        // 
-        // label8
-        // 
-        label8.AutoSize = true;
-        label8.Location = new Point(17, 176);
-        label8.Name = "label8";
-        label8.Size = new Size(52, 20);
-        label8.TabIndex = 29;
-        label8.Text = "E-mail";
-        // 
-        // label4
-        // 
-        label4.AutoSize = true;
-        label4.Location = new Point(17, 239);
-        label4.Name = "label4";
-        label4.Size = new Size(47, 20);
-        label4.TabIndex = 20;
-        label4.Text = "Idade";
-        // 
-        // txtLastName
-        // 
-        txtLastName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtLastName.Location = new Point(17, 133);
-        txtLastName.Name = "txtLastName";
-        txtLastName.PlaceholderText = "Digite seu sobrenome";
-        txtLastName.Size = new Size(243, 27);
-        txtLastName.TabIndex = 28;
-        // 
-        // label6
-        // 
-        label6.AutoSize = true;
-        label6.Location = new Point(17, 309);
-        label6.Name = "label6";
-        label6.Size = new Size(66, 20);
-        label6.TabIndex = 21;
-        label6.Text = "Telefone";
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Location = new Point(17, 110);
-        label3.Name = "label3";
-        label3.Size = new Size(86, 20);
-        label3.TabIndex = 27;
-        label3.Text = "Sobrenome";
-        // 
-        // label7
-        // 
-        label7.AutoSize = true;
-        label7.Location = new Point(18, 380);
-        label7.Name = "label7";
-        label7.Size = new Size(33, 20);
-        label7.TabIndex = 22;
-        label7.Text = "CPF";
-        // 
-        // mtbDocument
-        // 
-        mtbDocument.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        mtbDocument.Location = new Point(18, 403);
-        mtbDocument.Mask = "000.000.000-00";
-        mtbDocument.Name = "mtbDocument";
-        mtbDocument.Size = new Size(125, 27);
-        mtbDocument.TabIndex = 26;
-        // 
-        // txtName
-        // 
-        txtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtName.Location = new Point(17, 63);
-        txtName.Name = "txtName";
-        txtName.PlaceholderText = "Digite seu nome";
-        txtName.Size = new Size(243, 27);
-        txtName.TabIndex = 23;
+        mtbCelPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        mtbCelPhone.Location = new Point(398, 186);
+        mtbCelPhone.Mask = "(99) 00000-0000";
+        mtbCelPhone.Name = "mtbCelPhone";
+        mtbCelPhone.Size = new Size(370, 27);
+        mtbCelPhone.TabIndex = 4;
+        mtbCelPhone.TextAlign = HorizontalAlignment.Center;
         // 
         // mtbPhone
         // 
-        mtbPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        mtbPhone.Location = new Point(18, 332);
-        mtbPhone.Mask = "(00) 00000-0000";
+        mtbPhone.Location = new Point(46, 252);
+        mtbPhone.Mask = "(00) 0000-0000";
         mtbPhone.Name = "mtbPhone";
-        mtbPhone.Size = new Size(125, 27);
-        mtbPhone.TabIndex = 25;
+        mtbPhone.Size = new Size(113, 27);
+        mtbPhone.TabIndex = 5;
         // 
-        // mtbAge
+        // txtCountry
         // 
-        mtbAge.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        mtbAge.Location = new Point(17, 262);
-        mtbAge.Mask = "00";
-        mtbAge.Name = "mtbAge";
-        mtbAge.Size = new Size(33, 27);
-        mtbAge.TabIndex = 24;
-        mtbAge.TextAlign = HorizontalAlignment.Center;
+        txtCountry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtCountry.Location = new Point(549, 374);
+        txtCountry.Name = "txtCountry";
+        txtCountry.PlaceholderText = "Digite seu país de origem";
+        txtCountry.Size = new Size(217, 27);
+        txtCountry.TabIndex = 10;
         // 
-        // gpAddresRegister
+        // lblCountry
         // 
-        gpAddresRegister.Anchor = AnchorStyles.Top;
-        gpAddresRegister.Controls.Add(txtNumber);
-        gpAddresRegister.Controls.Add(lblNumber);
-        gpAddresRegister.Controls.Add(txtUF);
-        gpAddresRegister.Controls.Add(label1);
-        gpAddresRegister.Controls.Add(txtState);
-        gpAddresRegister.Controls.Add(lblState);
-        gpAddresRegister.Controls.Add(txtCity);
-        gpAddresRegister.Controls.Add(lblCity);
-        gpAddresRegister.Controls.Add(txtStreet);
-        gpAddresRegister.Controls.Add(lblStreet);
-        gpAddresRegister.Controls.Add(lblZipCode);
-        gpAddresRegister.Controls.Add(mtbZipCode);
-        gpAddresRegister.Location = new Point(458, 50);
-        gpAddresRegister.Name = "gpAddresRegister";
-        gpAddresRegister.Size = new Size(306, 475);
-        gpAddresRegister.TabIndex = 19;
-        gpAddresRegister.TabStop = false;
-        gpAddresRegister.Text = "Endereço";
+        lblCountry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblCountry.AutoSize = true;
+        lblCountry.BackColor = Color.Transparent;
+        lblCountry.ForeColor = Color.LightGray;
+        lblCountry.Location = new Point(549, 351);
+        lblCountry.Name = "lblCountry";
+        lblCountry.Size = new Size(34, 20);
+        lblCountry.TabIndex = 77;
+        lblCountry.Text = "País";
         // 
         // txtNumber
         // 
-        txtNumber.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtNumber.Location = new Point(17, 403);
+        txtNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtNumber.Location = new Point(672, 443);
         txtNumber.Name = "txtNumber";
-        txtNumber.Size = new Size(243, 27);
-        txtNumber.TabIndex = 36;
+        txtNumber.PlaceholderText = "ex.: 123";
+        txtNumber.Size = new Size(94, 27);
+        txtNumber.TabIndex = 14;
         txtNumber.TextAlign = HorizontalAlignment.Center;
         // 
         // lblNumber
         // 
+        lblNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblNumber.AutoSize = true;
-        lblNumber.Location = new Point(17, 380);
+        lblNumber.BackColor = Color.Transparent;
+        lblNumber.ForeColor = Color.LightGray;
+        lblNumber.Location = new Point(672, 417);
         lblNumber.Name = "lblNumber";
         lblNumber.Size = new Size(63, 20);
-        lblNumber.TabIndex = 35;
+        lblNumber.TabIndex = 76;
         lblNumber.Text = "Número";
         // 
         // txtUF
         // 
-        txtUF.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtUF.Location = new Point(18, 338);
+        txtUF.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtUF.Location = new Point(549, 443);
         txtUF.Name = "txtUF";
-        txtUF.Size = new Size(75, 27);
-        txtUF.TabIndex = 34;
+        txtUF.PlaceholderText = "ex.: SP";
+        txtUF.Size = new Size(94, 27);
+        txtUF.TabIndex = 13;
+        txtUF.TextAlign = HorizontalAlignment.Center;
         // 
-        // label1
+        // lblUF
         // 
-        label1.AutoSize = true;
-        label1.Location = new Point(18, 315);
-        label1.Name = "label1";
-        label1.Size = new Size(26, 20);
-        label1.TabIndex = 33;
-        label1.Text = "UF";
+        lblUF.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblUF.AutoSize = true;
+        lblUF.BackColor = Color.Transparent;
+        lblUF.ForeColor = Color.LightGray;
+        lblUF.Location = new Point(549, 417);
+        lblUF.Name = "lblUF";
+        lblUF.Size = new Size(26, 20);
+        lblUF.TabIndex = 74;
+        lblUF.Text = "UF";
         // 
         // txtState
         // 
-        txtState.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtState.Location = new Point(18, 272);
+        txtState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtState.Location = new Point(299, 443);
         txtState.Name = "txtState";
         txtState.PlaceholderText = "Digite seu estado";
-        txtState.Size = new Size(243, 27);
-        txtState.TabIndex = 32;
+        txtState.Size = new Size(233, 27);
+        txtState.TabIndex = 12;
         // 
         // lblState
         // 
+        lblState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblState.AutoSize = true;
-        lblState.Location = new Point(18, 249);
+        lblState.BackColor = Color.Transparent;
+        lblState.ForeColor = Color.LightGray;
+        lblState.Location = new Point(300, 417);
         lblState.Name = "lblState";
-        lblState.Size = new Size(54, 20);
-        lblState.TabIndex = 31;
-        lblState.Text = "Estado";
+        lblState.Size = new Size(60, 20);
+        lblState.TabIndex = 70;
+        lblState.Text = "Estado*";
         // 
         // txtCity
         // 
-        txtCity.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtCity.Location = new Point(17, 199);
+        txtCity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtCity.Location = new Point(45, 443);
         txtCity.Name = "txtCity";
         txtCity.PlaceholderText = "Digite sua cidade";
-        txtCity.Size = new Size(243, 27);
-        txtCity.TabIndex = 30;
+        txtCity.Size = new Size(237, 27);
+        txtCity.TabIndex = 11;
         // 
         // lblCity
         // 
+        lblCity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblCity.AutoSize = true;
-        lblCity.Location = new Point(17, 176);
+        lblCity.BackColor = Color.Transparent;
+        lblCity.ForeColor = Color.LightGray;
+        lblCity.Location = new Point(46, 417);
         lblCity.Name = "lblCity";
-        lblCity.Size = new Size(56, 20);
-        lblCity.TabIndex = 29;
-        lblCity.Text = "Cidade";
+        lblCity.Size = new Size(62, 20);
+        lblCity.TabIndex = 67;
+        lblCity.Text = "Cidade*";
         // 
         // txtStreet
         // 
-        txtStreet.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        txtStreet.Location = new Point(17, 133);
+        txtStreet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtStreet.Location = new Point(298, 374);
         txtStreet.Name = "txtStreet";
         txtStreet.PlaceholderText = "Digite seu endereço";
-        txtStreet.Size = new Size(243, 27);
-        txtStreet.TabIndex = 28;
+        txtStreet.Size = new Size(234, 27);
+        txtStreet.TabIndex = 9;
         // 
         // lblStreet
         // 
+        lblStreet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblStreet.AutoSize = true;
-        lblStreet.Location = new Point(17, 110);
+        lblStreet.BackColor = Color.Transparent;
+        lblStreet.ForeColor = Color.LightGray;
+        lblStreet.Location = new Point(300, 351);
         lblStreet.Name = "lblStreet";
-        lblStreet.Size = new Size(95, 20);
-        lblStreet.TabIndex = 27;
-        lblStreet.Text = "Lougradouro";
+        lblStreet.Size = new Size(101, 20);
+        lblStreet.TabIndex = 66;
+        lblStreet.Text = "Lougradouro*";
         // 
         // lblZipCode
         // 
+        lblZipCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
         lblZipCode.AutoSize = true;
-        lblZipCode.Location = new Point(18, 40);
+        lblZipCode.BackColor = Color.Transparent;
+        lblZipCode.ForeColor = Color.LightGray;
+        lblZipCode.Location = new Point(46, 351);
         lblZipCode.Name = "lblZipCode";
-        lblZipCode.Size = new Size(34, 20);
-        lblZipCode.TabIndex = 22;
-        lblZipCode.Text = "CEP";
+        lblZipCode.Size = new Size(40, 20);
+        lblZipCode.TabIndex = 65;
+        lblZipCode.Text = "CEP*";
         // 
         // mtbZipCode
         // 
-        mtbZipCode.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-        mtbZipCode.Location = new Point(18, 63);
+        mtbZipCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        mtbZipCode.Location = new Point(45, 374);
         mtbZipCode.Mask = "00000-000";
         mtbZipCode.Name = "mtbZipCode";
-        mtbZipCode.Size = new Size(104, 27);
-        mtbZipCode.TabIndex = 26;
+        mtbZipCode.Size = new Size(237, 27);
+        mtbZipCode.TabIndex = 8;
         mtbZipCode.TextAlign = HorizontalAlignment.Center;
+        // 
+        // label17
+        // 
+        label17.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        label17.AutoSize = true;
+        label17.BackColor = Color.Transparent;
+        label17.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+        label17.ForeColor = Color.White;
+        label17.Location = new Point(258, 16);
+        label17.Margin = new Padding(0);
+        label17.Name = "label17";
+        label17.Size = new Size(267, 38);
+        label17.TabIndex = 50;
+        label17.Text = "Cadastro de Pessoa";
+        // 
+        // lblCelPhone
+        // 
+        lblCelPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblCelPhone.AutoSize = true;
+        lblCelPhone.BackColor = Color.Transparent;
+        lblCelPhone.ForeColor = Color.LightGray;
+        lblCelPhone.Location = new Point(400, 163);
+        lblCelPhone.Name = "lblCelPhone";
+        lblCelPhone.Size = new Size(116, 20);
+        lblCelPhone.TabIndex = 63;
+        lblCelPhone.Text = "Telefone Celular";
+        // 
+        // lblFirstName
+        // 
+        lblFirstName.AutoSize = true;
+        lblFirstName.BackColor = Color.Transparent;
+        lblFirstName.ForeColor = Color.LightGray;
+        lblFirstName.Location = new Point(47, 98);
+        lblFirstName.Name = "lblFirstName";
+        lblFirstName.Size = new Size(56, 20);
+        lblFirstName.TabIndex = 51;
+        lblFirstName.Text = "Nome*";
+        // 
+        // txtEmail
+        // 
+        txtEmail.Location = new Point(46, 186);
+        txtEmail.Name = "txtEmail";
+        txtEmail.PlaceholderText = "Digite seu e-mail";
+        txtEmail.Size = new Size(332, 27);
+        txtEmail.TabIndex = 3;
+        // 
+        // mtbAge
+        // 
+        mtbAge.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        mtbAge.Location = new Point(398, 252);
+        mtbAge.Mask = "00";
+        mtbAge.Name = "mtbAge";
+        mtbAge.Size = new Size(369, 27);
+        mtbAge.TabIndex = 7;
+        mtbAge.TextAlign = HorizontalAlignment.Center;
+        // 
+        // lblEmail
+        // 
+        lblEmail.AutoSize = true;
+        lblEmail.BackColor = Color.Transparent;
+        lblEmail.ForeColor = Color.LightGray;
+        lblEmail.Location = new Point(47, 163);
+        lblEmail.Name = "lblEmail";
+        lblEmail.Size = new Size(52, 20);
+        lblEmail.TabIndex = 61;
+        lblEmail.Text = "E-mail";
+        // 
+        // txtFirstName
+        // 
+        txtFirstName.Location = new Point(46, 121);
+        txtFirstName.Name = "txtFirstName";
+        txtFirstName.PlaceholderText = "Digite seu nome";
+        txtFirstName.Size = new Size(332, 27);
+        txtFirstName.TabIndex = 1;
+        // 
+        // lblAge
+        // 
+        lblAge.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblAge.AutoSize = true;
+        lblAge.BackColor = Color.Transparent;
+        lblAge.ForeColor = Color.LightGray;
+        lblAge.Location = new Point(400, 229);
+        lblAge.Name = "lblAge";
+        lblAge.Size = new Size(47, 20);
+        lblAge.TabIndex = 52;
+        lblAge.Text = "Idade";
+        // 
+        // mtbCPF
+        // 
+        mtbCPF.Location = new Point(182, 252);
+        mtbCPF.Mask = "000.000.000-00";
+        mtbCPF.Name = "mtbCPF";
+        mtbCPF.Size = new Size(196, 27);
+        mtbCPF.TabIndex = 6;
+        mtbCPF.TextAlign = HorizontalAlignment.Center;
+        // 
+        // txtLastName
+        // 
+        txtLastName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtLastName.Location = new Point(399, 121);
+        txtLastName.Name = "txtLastName";
+        txtLastName.PlaceholderText = "Digite seu sobrenome";
+        txtLastName.Size = new Size(369, 27);
+        txtLastName.TabIndex = 2;
+        // 
+        // lblCPF
+        // 
+        lblCPF.AutoSize = true;
+        lblCPF.BackColor = Color.Transparent;
+        lblCPF.ForeColor = Color.LightGray;
+        lblCPF.Location = new Point(182, 229);
+        lblCPF.Name = "lblCPF";
+        lblCPF.Size = new Size(33, 20);
+        lblCPF.TabIndex = 54;
+        lblCPF.Text = "CPF";
+        // 
+        // lblPhone
+        // 
+        lblPhone.AutoSize = true;
+        lblPhone.BackColor = Color.Transparent;
+        lblPhone.ForeColor = Color.LightGray;
+        lblPhone.Location = new Point(47, 229);
+        lblPhone.Name = "lblPhone";
+        lblPhone.Size = new Size(97, 20);
+        lblPhone.TabIndex = 53;
+        lblPhone.Text = "Telefone Fixo";
+        // 
+        // lblLastName
+        // 
+        lblLastName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblLastName.AutoSize = true;
+        lblLastName.BackColor = Color.Transparent;
+        lblLastName.ForeColor = Color.LightGray;
+        lblLastName.Location = new Point(399, 98);
+        lblLastName.Name = "lblLastName";
+        lblLastName.Size = new Size(92, 20);
+        lblLastName.TabIndex = 59;
+        lblLastName.Text = "Sobrenome*";
+        // 
+        // btnSave
+        // 
+        btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        btnSave.BackColor = Color.FromArgb(196, 210, 245);
+        btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        btnSave.ForeColor = Color.White;
+        btnSave.Location = new Point(241, 509);
+        btnSave.Name = "btnSave";
+        btnSave.Size = new Size(302, 76);
+        btnSave.TabIndex = 15;
+        btnSave.Text = "Salvar";
+        btnSave.UseVisualStyleBackColor = false;
         // 
         // FormAdd
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
+        BackColor = Color.FromArgb(196, 210, 245);
         ClientSize = new Size(804, 630);
-        Controls.Add(gpAddresRegister);
-        Controls.Add(gpPersonRegister);
-        Controls.Add(btnSave);
-        Controls.Add(lblTitle);
+        Controls.Add(panel1);
         FormBorderStyle = FormBorderStyle.None;
         MinimumSize = new Size(804, 630);
         Name = "FormAdd";
+        Padding = new Padding(10);
         Text = "formAdd";
         TransparencyKey = Color.White;
-        Load += formAdd_Load;
-        gpPersonRegister.ResumeLayout(false);
-        gpPersonRegister.PerformLayout();
-        gpAddresRegister.ResumeLayout(false);
-        gpAddresRegister.PerformLayout();
+        Load += FormAdd_Load;
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
         ResumeLayout(false);
-        PerformLayout();
     }
 
     #endregion
 
-    private Label lblTitle;
-    private Button btnSave;
-    private GroupBox gpPersonRegister;
-    private TextBox txtEmail;
-    private Label label2;
-    private Label label8;
-    private Label label4;
-    private TextBox txtLastName;
-    private Label label6;
-    private Label label3;
-    private Label label7;
-    private MaskedTextBox mtbDocument;
-    private TextBox txtName;
-    private MaskedTextBox mtbPhone;
-    private MaskedTextBox mtbAge;
-    private GroupBox gpAddresRegister;
+    private Panel panel1;
+    private TextBox txtCountry;
+    private Label lblCountry;
+    private TextBox txtNumber;
+    private Label lblNumber;
+    private TextBox txtUF;
+    private Label lblUF;
+    private TextBox txtState;
+    private Label lblState;
     private TextBox txtCity;
     private Label lblCity;
     private TextBox txtStreet;
     private Label lblStreet;
     private Label lblZipCode;
     private MaskedTextBox mtbZipCode;
-    private TextBox txtUF;
-    private Label label1;
-    private TextBox txtState;
-    private Label lblState;
-    private TextBox txtNumber;
-    private Label lblNumber;
+    private Label label17;
+    private Label lblCelPhone;
+    private Label lblFirstName;
+    private TextBox txtEmail;
+    private MaskedTextBox mtbAge;
+    private Label lblEmail;
+    private TextBox txtFirstName;
+    private Label lblAge;
+    private TextBox txtLastName;
+    private Label lblPhone;
+    private Label lblLastName;
+    private Button btnSave;
+    private MaskedTextBox mtbPhone;
+    private MaskedTextBox mtbCPF;
+    private Label lblCPF;
+    private MaskedTextBox mtbCelPhone;
+    private Label lblSubTitle;
+    private Label lblSubTitle2;
 }
