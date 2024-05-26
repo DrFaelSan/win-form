@@ -100,20 +100,20 @@ partial class FormAdd
         panel1.Controls.Add(lblLastName);
         panel1.Controls.Add(btnSave);
         panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(10, 10);
+        panel1.Location = new Point(5, 5);
         panel1.Margin = new Padding(0);
         panel1.Name = "panel1";
-        panel1.Size = new Size(784, 610);
+        panel1.Size = new Size(794, 570);
         panel1.TabIndex = 37;
         // 
         // lblSubTitle2
         // 
-        lblSubTitle2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblSubTitle2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblSubTitle2.AutoSize = true;
         lblSubTitle2.BackColor = Color.Transparent;
         lblSubTitle2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
         lblSubTitle2.ForeColor = Color.White;
-        lblSubTitle2.Location = new Point(47, 311);
+        lblSubTitle2.Location = new Point(46, 293);
         lblSubTitle2.Margin = new Padding(0);
         lblSubTitle2.Name = "lblSubTitle2";
         lblSubTitle2.Size = new Size(91, 25);
@@ -122,7 +122,7 @@ partial class FormAdd
         // 
         // lblSubTitle
         // 
-        lblSubTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblSubTitle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblSubTitle.AutoSize = true;
         lblSubTitle.BackColor = Color.Transparent;
         lblSubTitle.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -136,16 +136,19 @@ partial class FormAdd
         // 
         // mtbCelPhone
         // 
-        mtbCelPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        mtbCelPhone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        mtbCelPhone.Cursor = Cursors.Hand;
         mtbCelPhone.Location = new Point(398, 186);
         mtbCelPhone.Mask = "(99) 00000-0000";
         mtbCelPhone.Name = "mtbCelPhone";
-        mtbCelPhone.Size = new Size(370, 27);
+        mtbCelPhone.Size = new Size(380, 27);
         mtbCelPhone.TabIndex = 4;
         mtbCelPhone.TextAlign = HorizontalAlignment.Center;
         // 
         // mtbPhone
         // 
+        mtbPhone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        mtbPhone.Cursor = Cursors.Hand;
         mtbPhone.Location = new Point(46, 252);
         mtbPhone.Mask = "(00) 0000-0000";
         mtbPhone.Name = "mtbPhone";
@@ -154,20 +157,21 @@ partial class FormAdd
         // 
         // txtCountry
         // 
-        txtCountry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        txtCountry.Location = new Point(549, 374);
+        txtCountry.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtCountry.Cursor = Cursors.Hand;
+        txtCountry.Location = new Point(548, 356);
         txtCountry.Name = "txtCountry";
         txtCountry.PlaceholderText = "Digite seu país de origem";
-        txtCountry.Size = new Size(217, 27);
+        txtCountry.Size = new Size(227, 27);
         txtCountry.TabIndex = 10;
         // 
         // lblCountry
         // 
-        lblCountry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblCountry.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblCountry.AutoSize = true;
         lblCountry.BackColor = Color.Transparent;
         lblCountry.ForeColor = Color.LightGray;
-        lblCountry.Location = new Point(549, 351);
+        lblCountry.Location = new Point(548, 333);
         lblCountry.Name = "lblCountry";
         lblCountry.Size = new Size(34, 20);
         lblCountry.TabIndex = 77;
@@ -175,21 +179,22 @@ partial class FormAdd
         // 
         // txtNumber
         // 
-        txtNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        txtNumber.Location = new Point(672, 443);
+        txtNumber.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtNumber.Cursor = Cursors.Hand;
+        txtNumber.Location = new Point(671, 425);
         txtNumber.Name = "txtNumber";
         txtNumber.PlaceholderText = "ex.: 123";
-        txtNumber.Size = new Size(94, 27);
+        txtNumber.Size = new Size(104, 27);
         txtNumber.TabIndex = 14;
         txtNumber.TextAlign = HorizontalAlignment.Center;
         // 
         // lblNumber
         // 
-        lblNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblNumber.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblNumber.AutoSize = true;
         lblNumber.BackColor = Color.Transparent;
         lblNumber.ForeColor = Color.LightGray;
-        lblNumber.Location = new Point(672, 417);
+        lblNumber.Location = new Point(671, 399);
         lblNumber.Name = "lblNumber";
         lblNumber.Size = new Size(63, 20);
         lblNumber.TabIndex = 76;
@@ -197,8 +202,9 @@ partial class FormAdd
         // 
         // txtUF
         // 
-        txtUF.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        txtUF.Location = new Point(549, 443);
+        txtUF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        txtUF.Cursor = Cursors.Hand;
+        txtUF.Location = new Point(548, 425);
         txtUF.Name = "txtUF";
         txtUF.PlaceholderText = "ex.: SP";
         txtUF.Size = new Size(94, 27);
@@ -207,11 +213,11 @@ partial class FormAdd
         // 
         // lblUF
         // 
-        lblUF.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblUF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblUF.AutoSize = true;
         lblUF.BackColor = Color.Transparent;
         lblUF.ForeColor = Color.LightGray;
-        lblUF.Location = new Point(549, 417);
+        lblUF.Location = new Point(548, 399);
         lblUF.Name = "lblUF";
         lblUF.Size = new Size(26, 20);
         lblUF.TabIndex = 74;
@@ -219,8 +225,9 @@ partial class FormAdd
         // 
         // txtState
         // 
-        txtState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        txtState.Location = new Point(299, 443);
+        txtState.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        txtState.Cursor = Cursors.Hand;
+        txtState.Location = new Point(298, 425);
         txtState.Name = "txtState";
         txtState.PlaceholderText = "Digite seu estado";
         txtState.Size = new Size(233, 27);
@@ -228,11 +235,11 @@ partial class FormAdd
         // 
         // lblState
         // 
-        lblState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblState.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblState.AutoSize = true;
         lblState.BackColor = Color.Transparent;
         lblState.ForeColor = Color.LightGray;
-        lblState.Location = new Point(300, 417);
+        lblState.Location = new Point(299, 399);
         lblState.Name = "lblState";
         lblState.Size = new Size(60, 20);
         lblState.TabIndex = 70;
@@ -240,8 +247,9 @@ partial class FormAdd
         // 
         // txtCity
         // 
-        txtCity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        txtCity.Location = new Point(45, 443);
+        txtCity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        txtCity.Cursor = Cursors.Hand;
+        txtCity.Location = new Point(44, 425);
         txtCity.Name = "txtCity";
         txtCity.PlaceholderText = "Digite sua cidade";
         txtCity.Size = new Size(237, 27);
@@ -249,11 +257,11 @@ partial class FormAdd
         // 
         // lblCity
         // 
-        lblCity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblCity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblCity.AutoSize = true;
         lblCity.BackColor = Color.Transparent;
         lblCity.ForeColor = Color.LightGray;
-        lblCity.Location = new Point(46, 417);
+        lblCity.Location = new Point(45, 399);
         lblCity.Name = "lblCity";
         lblCity.Size = new Size(62, 20);
         lblCity.TabIndex = 67;
@@ -261,8 +269,9 @@ partial class FormAdd
         // 
         // txtStreet
         // 
-        txtStreet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        txtStreet.Location = new Point(298, 374);
+        txtStreet.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        txtStreet.Cursor = Cursors.Hand;
+        txtStreet.Location = new Point(297, 356);
         txtStreet.Name = "txtStreet";
         txtStreet.PlaceholderText = "Digite seu endereço";
         txtStreet.Size = new Size(234, 27);
@@ -270,11 +279,11 @@ partial class FormAdd
         // 
         // lblStreet
         // 
-        lblStreet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblStreet.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblStreet.AutoSize = true;
         lblStreet.BackColor = Color.Transparent;
         lblStreet.ForeColor = Color.LightGray;
-        lblStreet.Location = new Point(300, 351);
+        lblStreet.Location = new Point(299, 333);
         lblStreet.Name = "lblStreet";
         lblStreet.Size = new Size(101, 20);
         lblStreet.TabIndex = 66;
@@ -282,11 +291,11 @@ partial class FormAdd
         // 
         // lblZipCode
         // 
-        lblZipCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblZipCode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblZipCode.AutoSize = true;
         lblZipCode.BackColor = Color.Transparent;
         lblZipCode.ForeColor = Color.LightGray;
-        lblZipCode.Location = new Point(46, 351);
+        lblZipCode.Location = new Point(45, 333);
         lblZipCode.Name = "lblZipCode";
         lblZipCode.Size = new Size(40, 20);
         lblZipCode.TabIndex = 65;
@@ -294,8 +303,9 @@ partial class FormAdd
         // 
         // mtbZipCode
         // 
-        mtbZipCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        mtbZipCode.Location = new Point(45, 374);
+        mtbZipCode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        mtbZipCode.Cursor = Cursors.Hand;
+        mtbZipCode.Location = new Point(44, 356);
         mtbZipCode.Mask = "00000-000";
         mtbZipCode.Name = "mtbZipCode";
         mtbZipCode.Size = new Size(237, 27);
@@ -318,7 +328,7 @@ partial class FormAdd
         // 
         // lblCelPhone
         // 
-        lblCelPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblCelPhone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblCelPhone.AutoSize = true;
         lblCelPhone.BackColor = Color.Transparent;
         lblCelPhone.ForeColor = Color.LightGray;
@@ -330,6 +340,7 @@ partial class FormAdd
         // 
         // lblFirstName
         // 
+        lblFirstName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblFirstName.AutoSize = true;
         lblFirstName.BackColor = Color.Transparent;
         lblFirstName.ForeColor = Color.LightGray;
@@ -341,6 +352,8 @@ partial class FormAdd
         // 
         // txtEmail
         // 
+        txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        txtEmail.Cursor = Cursors.Hand;
         txtEmail.Location = new Point(46, 186);
         txtEmail.Name = "txtEmail";
         txtEmail.PlaceholderText = "Digite seu e-mail";
@@ -349,16 +362,18 @@ partial class FormAdd
         // 
         // mtbAge
         // 
-        mtbAge.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        mtbAge.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        mtbAge.Cursor = Cursors.Hand;
         mtbAge.Location = new Point(398, 252);
         mtbAge.Mask = "00";
         mtbAge.Name = "mtbAge";
-        mtbAge.Size = new Size(369, 27);
+        mtbAge.Size = new Size(379, 27);
         mtbAge.TabIndex = 7;
         mtbAge.TextAlign = HorizontalAlignment.Center;
         // 
         // lblEmail
         // 
+        lblEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblEmail.AutoSize = true;
         lblEmail.BackColor = Color.Transparent;
         lblEmail.ForeColor = Color.LightGray;
@@ -370,6 +385,8 @@ partial class FormAdd
         // 
         // txtFirstName
         // 
+        txtFirstName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        txtFirstName.Cursor = Cursors.Hand;
         txtFirstName.Location = new Point(46, 121);
         txtFirstName.Name = "txtFirstName";
         txtFirstName.PlaceholderText = "Digite seu nome";
@@ -378,7 +395,7 @@ partial class FormAdd
         // 
         // lblAge
         // 
-        lblAge.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblAge.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblAge.AutoSize = true;
         lblAge.BackColor = Color.Transparent;
         lblAge.ForeColor = Color.LightGray;
@@ -390,6 +407,8 @@ partial class FormAdd
         // 
         // mtbCPF
         // 
+        mtbCPF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+        mtbCPF.Cursor = Cursors.Hand;
         mtbCPF.Location = new Point(182, 252);
         mtbCPF.Mask = "000.000.000-00";
         mtbCPF.Name = "mtbCPF";
@@ -399,15 +418,17 @@ partial class FormAdd
         // 
         // txtLastName
         // 
-        txtLastName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtLastName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtLastName.Cursor = Cursors.Hand;
         txtLastName.Location = new Point(399, 121);
         txtLastName.Name = "txtLastName";
         txtLastName.PlaceholderText = "Digite seu sobrenome";
-        txtLastName.Size = new Size(369, 27);
+        txtLastName.Size = new Size(379, 27);
         txtLastName.TabIndex = 2;
         // 
         // lblCPF
         // 
+        lblCPF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblCPF.AutoSize = true;
         lblCPF.BackColor = Color.Transparent;
         lblCPF.ForeColor = Color.LightGray;
@@ -419,6 +440,7 @@ partial class FormAdd
         // 
         // lblPhone
         // 
+        lblPhone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblPhone.AutoSize = true;
         lblPhone.BackColor = Color.Transparent;
         lblPhone.ForeColor = Color.LightGray;
@@ -430,7 +452,7 @@ partial class FormAdd
         // 
         // lblLastName
         // 
-        lblLastName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        lblLastName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblLastName.AutoSize = true;
         lblLastName.BackColor = Color.Transparent;
         lblLastName.ForeColor = Color.LightGray;
@@ -444,26 +466,28 @@ partial class FormAdd
         // 
         btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         btnSave.BackColor = Color.FromArgb(196, 210, 245);
+        btnSave.Cursor = Cursors.Hand;
         btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
         btnSave.ForeColor = Color.White;
-        btnSave.Location = new Point(241, 509);
+        btnSave.Location = new Point(240, 491);
         btnSave.Name = "btnSave";
-        btnSave.Size = new Size(302, 76);
+        btnSave.Size = new Size(312, 61);
         btnSave.TabIndex = 15;
         btnSave.Text = "Salvar";
         btnSave.UseVisualStyleBackColor = false;
+        btnSave.Click += BtnSave_Click;
         // 
         // FormAdd
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(196, 210, 245);
-        ClientSize = new Size(804, 630);
+        ClientSize = new Size(804, 580);
         Controls.Add(panel1);
         FormBorderStyle = FormBorderStyle.None;
-        MinimumSize = new Size(804, 630);
+        MinimumSize = new Size(804, 580);
         Name = "FormAdd";
-        Padding = new Padding(10);
+        Padding = new Padding(5);
         Text = "formAdd";
         TransparencyKey = Color.White;
         Load += FormAdd_Load;

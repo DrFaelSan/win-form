@@ -47,13 +47,13 @@
             // 
             // sidebar
             // 
-            sidebar.BackColor = SystemColors.WindowText;
+            sidebar.BackColor = Color.FromArgb(196, 210, 245);
             sidebar.Controls.Add(pnList);
             sidebar.Controls.Add(pnAdd);
             sidebar.Dock = DockStyle.Left;
             sidebar.Location = new Point(0, 0);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(250, 698);
+            sidebar.Size = new Size(250, 453);
             sidebar.TabIndex = 0;
             // 
             // pnList
@@ -66,7 +66,8 @@
             // 
             // btnList
             // 
-            btnList.BackColor = SystemColors.WindowText;
+            btnList.BackColor = Color.FromArgb(196, 210, 245);
+            btnList.Cursor = Cursors.Hand;
             btnList.ForeColor = Color.White;
             btnList.Image = (Image)resources.GetObject("btnList.Image");
             btnList.ImageAlign = ContentAlignment.MiddleLeft;
@@ -89,7 +90,8 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = SystemColors.WindowText;
+            btnAdd.BackColor = Color.FromArgb(196, 210, 245);
+            btnAdd.Cursor = Cursors.Hand;
             btnAdd.ForeColor = Color.White;
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;
@@ -104,6 +106,7 @@
             // 
             // flowLayoutPanel2
             // 
+            flowLayoutPanel2.BackColor = Color.FromArgb(196, 210, 245);
             flowLayoutPanel2.Controls.Add(btnMenu);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(250, 0);
@@ -114,6 +117,7 @@
             // btnMenu
             // 
             btnMenu.Anchor = AnchorStyles.None;
+            btnMenu.Cursor = Cursors.Hand;
             btnMenu.Image = (Image)resources.GetObject("btnMenu.Image");
             btnMenu.Location = new Point(3, 3);
             btnMenu.Name = "btnMenu";
@@ -130,15 +134,15 @@
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.WhiteSmoke;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1062, 698);
+            ClientSize = new Size(1062, 453);
             Controls.Add(flowLayoutPanel2);
             Controls.Add(sidebar);
             IsMdiContainer = true;
-            MinimumSize = new Size(1080, 745);
+            MaximizeBox = false;
+            MinimumSize = new Size(1080, 500);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "WIN FORM CRUD";

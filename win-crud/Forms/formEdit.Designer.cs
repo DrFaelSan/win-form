@@ -137,6 +137,7 @@ partial class FormEdit
         // mtbCelPhone
         // 
         mtbCelPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        mtbCelPhone.Cursor = Cursors.Hand;
         mtbCelPhone.Location = new Point(398, 186);
         mtbCelPhone.Mask = "(99) 00000-0000";
         mtbCelPhone.Name = "mtbCelPhone";
@@ -146,6 +147,7 @@ partial class FormEdit
         // 
         // mtbPhone
         // 
+        mtbPhone.Cursor = Cursors.Hand;
         mtbPhone.Location = new Point(46, 252);
         mtbPhone.Mask = "(00) 0000-0000";
         mtbPhone.Name = "mtbPhone";
@@ -155,6 +157,7 @@ partial class FormEdit
         // txtCountry
         // 
         txtCountry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtCountry.Cursor = Cursors.Hand;
         txtCountry.Location = new Point(549, 374);
         txtCountry.Name = "txtCountry";
         txtCountry.PlaceholderText = "Digite seu país de origem";
@@ -176,6 +179,7 @@ partial class FormEdit
         // txtNumber
         // 
         txtNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtNumber.Cursor = Cursors.Hand;
         txtNumber.Location = new Point(672, 443);
         txtNumber.Name = "txtNumber";
         txtNumber.PlaceholderText = "ex.: 123";
@@ -198,6 +202,7 @@ partial class FormEdit
         // txtUF
         // 
         txtUF.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtUF.Cursor = Cursors.Hand;
         txtUF.Location = new Point(549, 443);
         txtUF.Name = "txtUF";
         txtUF.PlaceholderText = "ex.: SP";
@@ -220,6 +225,7 @@ partial class FormEdit
         // txtState
         // 
         txtState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtState.Cursor = Cursors.Hand;
         txtState.Location = new Point(299, 443);
         txtState.Name = "txtState";
         txtState.PlaceholderText = "Digite seu estado";
@@ -241,6 +247,7 @@ partial class FormEdit
         // txtCity
         // 
         txtCity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtCity.Cursor = Cursors.Hand;
         txtCity.Location = new Point(45, 443);
         txtCity.Name = "txtCity";
         txtCity.PlaceholderText = "Digite sua cidade";
@@ -262,6 +269,7 @@ partial class FormEdit
         // txtStreet
         // 
         txtStreet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtStreet.Cursor = Cursors.Hand;
         txtStreet.Location = new Point(298, 374);
         txtStreet.Name = "txtStreet";
         txtStreet.PlaceholderText = "Digite seu endereço";
@@ -295,6 +303,7 @@ partial class FormEdit
         // mtbZipCode
         // 
         mtbZipCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        mtbZipCode.Cursor = Cursors.Hand;
         mtbZipCode.Location = new Point(45, 374);
         mtbZipCode.Mask = "00000-000";
         mtbZipCode.Name = "mtbZipCode";
@@ -341,6 +350,7 @@ partial class FormEdit
         // 
         // txtEmail
         // 
+        txtEmail.Cursor = Cursors.Hand;
         txtEmail.Location = new Point(46, 186);
         txtEmail.Name = "txtEmail";
         txtEmail.PlaceholderText = "Digite seu e-mail";
@@ -350,6 +360,7 @@ partial class FormEdit
         // mtbAge
         // 
         mtbAge.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        mtbAge.Cursor = Cursors.Hand;
         mtbAge.Location = new Point(398, 252);
         mtbAge.Mask = "00";
         mtbAge.Name = "mtbAge";
@@ -370,6 +381,7 @@ partial class FormEdit
         // 
         // txtFirstName
         // 
+        txtFirstName.Cursor = Cursors.Hand;
         txtFirstName.Location = new Point(46, 121);
         txtFirstName.Name = "txtFirstName";
         txtFirstName.PlaceholderText = "Digite seu nome";
@@ -390,6 +402,7 @@ partial class FormEdit
         // 
         // mtbCPF
         // 
+        mtbCPF.Cursor = Cursors.Hand;
         mtbCPF.Location = new Point(182, 252);
         mtbCPF.Mask = "000.000.000-00";
         mtbCPF.Name = "mtbCPF";
@@ -400,6 +413,7 @@ partial class FormEdit
         // txtLastName
         // 
         txtLastName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        txtLastName.Cursor = Cursors.Hand;
         txtLastName.Location = new Point(399, 121);
         txtLastName.Name = "txtLastName";
         txtLastName.PlaceholderText = "Digite seu sobrenome";
@@ -444,6 +458,7 @@ partial class FormEdit
         // 
         btnUpdate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         btnUpdate.BackColor = Color.FromArgb(196, 210, 245);
+        btnUpdate.Cursor = Cursors.Hand;
         btnUpdate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
         btnUpdate.ForeColor = Color.White;
         btnUpdate.Location = new Point(241, 509);

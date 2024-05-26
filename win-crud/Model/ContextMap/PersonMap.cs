@@ -17,5 +17,9 @@ public class PersonMap : IEntityTypeConfiguration<Person>
                .HasMaxLength(30);
         builder.Property(p => p.Phone).HasMaxLength(20);
 
+        builder.HasOne(p => p.Address)
+            .WithOne(a => a.Person)
+            .HasForeignKey<Address>(a => a.PersonId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

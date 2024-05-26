@@ -14,11 +14,11 @@ public partial class FormEdit : Form
         _personService = personService;
         _addressService = addressService;
         Person = person;
+        InitializeControls();
     }
 
-    private void FormEdit_Load(object sender, EventArgs e)
+    public void InitializeControls()
     {
-        ControlBox = false;
         var address = _addressService.FindByPersonId(Person.Id);
         txtStreet.Text = address?.Street;
         txtCity.Text = address?.City;
@@ -37,10 +37,16 @@ public partial class FormEdit : Form
         mtbCPF.Text = Person.CPF;
     }
 
+    private void FormEdit_Load(object sender, EventArgs e)
+    {
+        ControlBox = false;
+        InitializeControls();
+    }
+
     private void BtnUpdate_Click(object sender, EventArgs e)
     {
-        Address address = GetAddressForm();
-        Person person = GetPersonForm();
+        Address address = GetAddressFromForm();
+        Person person = GetPersonFromForm();
 
         if (_addressService.IsValid(address) && _personService.IsValid(person))
         {
@@ -53,35 +59,53 @@ public partial class FormEdit : Form
 
     public void ClearFields()
     {
-        //Pessoa
-        txtFirstName.Text = string.Empty;
-        txtLastName.Text = string.Empty;
-        txtEmail.Text = string.Empty;
-        mtbCelPhone.Text = string.Empty;
-        mtbPhone.Text = string.Empty;
-        mtbCPF.Text = string.Empty;
-        mtbAge.Text = string.Empty;
+        ////Pessoa
+        //txtFirstName.Text = string.Empty;
+        //txtLastName.Text = string.Empty;
+        //txtEmail.Text = string.Empty;
+        //mtbCelPhone.Text = string.Empty;
+        //mtbPhone.Text = string.Empty;
+        //mtbCPF.Text = string.Empty;
+        //mtbAge.Text = string.Empty;
 
-        //Endereço
-        mtbZipCode.Text = string.Empty;
-        txtStreet.Text = string.Empty;
-        txtCountry.Text = string.Empty;
-        txtCity.Text = string.Empty;
-        txtState.Text = string.Empty;
-        txtUF.Text = string.Empty;
-        txtNumber.Text = string.Empty;
+        ////Endereço
+        //mtbZipCode.Text = string.Empty;
+        //txtStreet.Text = string.Empty;
+        //txtCountry.Text = string.Empty;
+        //txtCity.Text = string.Empty;
+        //txtState.Text = string.Empty;
+        //txtUF.Text = string.Empty;
+        //txtNumber.Text = string.Empty;
+
+        foreach (Control control in Controls)
+        {
+            if (control is TextBox textBox)
+            {
+                textBox.Clear();
+            }
+            else if (control is MaskedTextBox maskedTextBox)
+            {
+                maskedTextBox.Clear();
+            }
+        }
     }
-    public Person GetPersonForm() => new()
+    public Person GetPersonFromForm()
     {
-        FirstName = txtFirstName.Text,
-        LastName = txtLastName.Text,
-        Email = txtEmail.Text,
-        CelPhone = mtbCelPhone.Text,
-        Phone = mtbPhone.Text,
-        Age = ushort.Parse(mtbAge.Text),
-        CPF = mtbCPF.Text,
-    };
-    public Address GetAddressForm() => new()
+        _ = short.TryParse(mtbAge.Text, out short age);
+
+        return new Person
+        {
+            FirstName = txtFirstName.Text,
+            LastName = txtLastName.Text,
+            Email = txtEmail.Text,
+            CelPhone = mtbCelPhone.Text,
+            Phone = mtbPhone.Text,
+            Age = age,
+            CPF = mtbCPF.Text,
+        };
+    }
+
+    public Address GetAddressFromForm() => new()
     {
         ZipCode = mtbZipCode.Text,
         Street = txtStreet.Text,

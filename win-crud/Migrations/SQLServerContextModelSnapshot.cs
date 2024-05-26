@@ -76,7 +76,7 @@ namespace win_crud.Migrations
                             Id = 1,
                             City = "São Paulo",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4898),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9285),
                             Number = "123",
                             PersonId = 1,
                             State = "São Paulo",
@@ -89,7 +89,7 @@ namespace win_crud.Migrations
                             Id = 2,
                             City = "Rio de Janeiro",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4899),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9287),
                             Number = "456",
                             PersonId = 2,
                             State = "Rio de Janeiro",
@@ -102,7 +102,7 @@ namespace win_crud.Migrations
                             Id = 3,
                             City = "Belo Horizonte",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4901),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9288),
                             Number = "789",
                             PersonId = 3,
                             State = " Minas Gerais",
@@ -115,7 +115,7 @@ namespace win_crud.Migrations
                             Id = 4,
                             City = "Curitiba",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4902),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9290),
                             Number = "1011",
                             PersonId = 4,
                             State = "Paraná",
@@ -128,7 +128,7 @@ namespace win_crud.Migrations
                             Id = 5,
                             City = "Porto Alegre",
                             Country = "Brasil",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4903),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9291),
                             Number = "1213",
                             PersonId = 5,
                             State = "Rio Grande do Sul",
@@ -146,8 +146,8 @@ namespace win_crud.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("Age")
-                        .HasColumnType("int");
+                    b.Property<short>("Age")
+                        .HasColumnType("smallint");
 
                     b.Property<string>("CPF")
                         .HasColumnType("nvarchar(max)");
@@ -183,10 +183,10 @@ namespace win_crud.Migrations
                         new
                         {
                             Id = 1,
-                            Age = 30,
+                            Age = (short)30,
                             CPF = "123.456.789-01",
                             CelPhone = "11984763130",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4795),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9183),
                             Email = "joao.silva@example.com",
                             FirstName = "João",
                             LastName = "Silva",
@@ -195,10 +195,10 @@ namespace win_crud.Migrations
                         new
                         {
                             Id = 2,
-                            Age = 25,
+                            Age = (short)25,
                             CPF = "987.654.321-02",
                             CelPhone = "11987537480",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4797),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9185),
                             Email = "maria.santos@example.com",
                             FirstName = "Maria",
                             LastName = "Santos",
@@ -207,10 +207,10 @@ namespace win_crud.Migrations
                         new
                         {
                             Id = 3,
-                            Age = 40,
+                            Age = (short)40,
                             CPF = "111.222.333-03",
                             CelPhone = "11984933130",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4798),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9205),
                             Email = "pedro.oliveira@example.com",
                             FirstName = "Pedro",
                             LastName = "Oliveira",
@@ -219,10 +219,10 @@ namespace win_crud.Migrations
                         new
                         {
                             Id = 4,
-                            Age = 35,
+                            Age = (short)35,
                             CPF = "444.555.666-04",
                             CelPhone = "11987558130",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4799),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9206),
                             Email = "ana.pereira@example.com",
                             FirstName = "Ana",
                             LastName = "Pereira",
@@ -231,10 +231,10 @@ namespace win_crud.Migrations
                         new
                         {
                             Id = 5,
-                            Age = 28,
+                            Age = (short)28,
                             CPF = "777.888.999-05",
                             CelPhone = "11946833130",
-                            CreatedAt = new DateTime(2024, 5, 25, 3, 18, 27, 534, DateTimeKind.Local).AddTicks(4821),
+                            CreatedAt = new DateTime(2024, 5, 26, 14, 17, 17, 570, DateTimeKind.Local).AddTicks(9207),
                             Email = "carlos.souza@example.com",
                             FirstName = "Carlos",
                             LastName = "Souza",
@@ -246,7 +246,8 @@ namespace win_crud.Migrations
                 {
                     b.HasOne("win_crud.Model.Person", "Person")
                         .WithOne("Address")
-                        .HasForeignKey("win_crud.Model.Address", "PersonId");
+                        .HasForeignKey("win_crud.Model.Address", "PersonId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Person");
                 });

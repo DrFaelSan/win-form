@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
+using win_crud.DTOs;
 using win_crud.Extensions;
 using win_crud.Model;
 using win_crud.Repository.Interfaces;
@@ -24,8 +25,8 @@ public class PersonService : IPersonService
     public bool Delete(int personId)
         => _personRepository.Delete(personId);
 
-    public IEnumerable<Person> GetAll()
-        => _personRepository.GetAll();
+    public IEnumerable<Person> GetAll(PersonFilterDTO? filterDTO = null)
+        => _personRepository.GetAll(filterDTO);
 
     public Person? GetById(int id)
         => _personRepository.GetById(id);

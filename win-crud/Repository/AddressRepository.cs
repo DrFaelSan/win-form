@@ -13,8 +13,8 @@ public class AddressRepository : IAddressRepository
 
     public Address? Create(Address address)
     {
-        var sql = $"INSERT INTO {nameof(Address)} "+@"(ZipCode, Street, City, State, Country, Number, UF, PersonId)
-            VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})
+        var sql = $"INSERT INTO {nameof(Address)} "+@"(ZipCode, Street, City, State, Country, Number, UF, PersonId, CreatedAt)
+            VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7},{8})
             ";
 
         int rowsAffected = _context.Database.ExecuteSqlRaw(sql,
@@ -25,7 +25,8 @@ public class AddressRepository : IAddressRepository
             address.Country ?? string.Empty,
             address.Number ?? string.Empty,
             address.UF ?? string.Empty,
-            address.PersonId);
+            address.PersonId,
+            DateTime.Now);
 
         return rowsAffected > 0 ? address : null;
     }

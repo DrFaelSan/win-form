@@ -61,7 +61,7 @@ public partial class FormAdd : Form
         Email = txtEmail.Text,
         CelPhone = mtbCelPhone.Text,
         Phone = mtbPhone.Text,
-        Age = ushort.Parse(mtbAge.Text),
+        Age = short.Parse(mtbAge.Text),
         CPF = mtbCPF.Text,
     };
     public Address GetAddressForm() => new()

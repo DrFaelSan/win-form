@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using win_crud.DTOs;
 using win_crud.Model;
 using win_crud.Model.Context;
 using win_crud.Repository.Interfaces;
@@ -13,25 +15,30 @@ public class PersonRepository : IPersonRepository
 
     public Person? Create(Person person)
     {
-        var sql = $"INSERT INTO {nameof(Person)} "+@"(FirstName, LastName, Age, Phone, CelPhone, Email, CPF)
-            VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7})";
+        var sql = $"INSERT INTO {nameof(Person)} (FirstName, LastName, Age, Phone, CelPhone, Email, CPF, CreatedAt) " +
+           "OUTPUT INSERTED.* " +
+           "VALUES (@FirstName, @LastName, @Age, @Phone, @CelPhone, @Email, @CPF, @CreatedAt)";
 
-        int rowsAffected = _context.Database.ExecuteSqlRaw(sql,
-            person.FirstName,
-            person.LastName,
-            person.Age,
-            person.Phone ?? string.Empty,
-            person.CelPhone ?? string.Empty,
-            person.Email ?? string.Empty,
-            person.CPF ?? string.Empty);
+        Person? insertedPerson = _context.Person
+            .FromSqlRaw(sql,
+                new SqlParameter("@FirstName", person.FirstName.Trim()),
+                new SqlParameter("@LastName", person.LastName.Trim()),
+                new SqlParameter("@Age", person.Age),
+                new SqlParameter("@Phone", person.Phone ?? string.Empty),
+                new SqlParameter("@CelPhone", person.CelPhone ?? string.Empty),
+                new SqlParameter("@Email", person.Email ?? string.Empty),
+                new SqlParameter("@CPF", person.CPF.Replace(",","").Replace("-","") ?? string.Empty),
+                new SqlParameter("@CreatedAt", DateTime.Now))
+            .AsEnumerable()
+            .FirstOrDefault();
 
-        return rowsAffected > 0 ? person : null;
+        return insertedPerson;
     }
 
     public bool Delete(int personId)
     {
         var sql = $"DELETE FROM {nameof(Person)} " + @"
-            WHERE PersonId = {0}
+            WHERE Id = {0}
         ";
 
         int rowsAffected = _context.Database.ExecuteSqlRaw(sql, personId);
@@ -39,9 +46,25 @@ public class PersonRepository : IPersonRepository
         return rowsAffected > 0;
     }
 
-    public IEnumerable<Person> GetAll()
-    => _context.Person.AsNoTracking()
-                      .ToList();
+    public IEnumerable<Person> GetAll(PersonFilterDTO? filterDTO = null)
+    {
+        var query = _context.Person.AsNoTracking();
+        if (filterDTO is not null)
+        {
+            if (!string.IsNullOrEmpty(filterDTO.FirstName))
+                query = query.Where(p => p.FirstName == filterDTO.FirstName || 
+                                         p.FirstName.Contains(filterDTO.FirstName));
+
+            if (filterDTO.Age.HasValue)
+                query = query.Where(p => p.Age == filterDTO.Age);
+
+            if (!string.IsNullOrEmpty(filterDTO.CPF))
+                query = query.Where(p => p.CPF == filterDTO.CPF || 
+                                         p.CPF.Contains(filterDTO.CPF));
+        }
+
+        return query.ToList();
+    }
         
     public Person? GetById(int id)
         => _context.Person.AsNoTracking()
@@ -54,24 +77,24 @@ public class PersonRepository : IPersonRepository
         if (exists)
         {
             var sql = $"UPDATE {nameof(Person)} "+@"
-            SET FirstName = {0},
-                LastName = {1},
-                Age = {2},
-                Phone = {3},
-                CelPhone = {4},
-                Email = {5},
-                CPF = {6}
-            WHERE Id = {7}
-            ";
+                        SET FirstName = {0},
+                            LastName = {1},
+                            Age = {2},
+                            Phone = {3},
+                            CelPhone = {4},
+                            Email = {5},
+                            CPF = {6}
+                        WHERE Id = {7}
+                        ";
 
             int rowsAffected = _context.Database.ExecuteSqlRaw(sql,
-                person.FirstName,
-                person.LastName,
+                person.FirstName.Trim(),
+                person.LastName.Trim(),
                 person.Age,
                 person.Phone ?? string.Empty,
                 person.CelPhone ?? string.Empty,
                 person.Email ?? string.Empty,
-                person.CPF ?? string.Empty,
+                person.CPF?.Replace(",", "").Replace("-", "") ?? string.Empty,
                 personId);
             return rowsAffected > 0 ? person : null;
         }

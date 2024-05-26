@@ -10,13 +10,13 @@ public partial class FormMain : Form
     private bool SiderbarExpand = true;
     FormList? formList;
     FormAdd? formAdd;
-    private IAddressService _addressService;
-    private IPersonService _personService;
+    private readonly IAddressService _addressService;
+    private readonly IPersonService _personService;
     public FormMain(IAddressService addressService, IPersonService personService)
     {
         InitializeComponent();
         MdiProp();
-        MaximizeBox = false;
+        //MaximizeBox = false;
         _addressService = addressService;
         _personService = personService;
     }
@@ -57,37 +57,34 @@ public partial class FormMain : Form
 
     private void BtnList_Click(object sender, EventArgs e)
     {
-        //if (formList is null)
-
-            formList = null;
+            ResetAllForms();
             formList = new FormList(_personService, _addressService);
             formList.FormClosed += FormList_FormClosed;
             formList.MdiParent = this;
             formList.Dock = DockStyle.Fill;
             formList.Show();
-        //}
-        //else
-        //    formList.Activate();
+    }
+
+    private void ResetAllForms()
+    {
+        formList = null;
+        formAdd = null;
     }
 
     private void BtnAdd_Click(object sender, EventArgs e)
     {
-        if (formAdd is null)
+        ResetAllForms();
+        formAdd = new FormAdd(_personService, _addressService);
+        formAdd.FormClosed += FormAdd_FormClosed;
+        formAdd.PersonAdded += (sender, newPerson) =>
         {
-            formAdd = new FormAdd(_personService, _addressService);
-            formAdd.FormClosed += FormAdd_FormClosed;
-            formAdd.PersonAdded += (sender, newPerson) =>
-            {
-                Person? person = _personService.Create(newPerson);
-                if (person is not null) formAdd.Close();
-                else formAdd.ClearFields();
-            };
-            formAdd.MdiParent = this;
-            formAdd.Dock = DockStyle.Fill;
-            formAdd.Show();
-        }
-        else
-            formAdd.Activate();
+            Person? person = _personService.Create(newPerson);
+            if (person is not null) formAdd.Close();
+            else formAdd.ClearFields();
+        };
+        formAdd.MdiParent = this;
+        formAdd.Dock = DockStyle.Fill;
+        formAdd.Show();
     }
 
     private void FormList_FormClosed(object? sender, FormClosedEventArgs e)
