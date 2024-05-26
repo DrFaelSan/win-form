@@ -53,7 +53,7 @@ public partial class FormEdit : Form
             _personService.Update(Person.Id, person);
             _addressService.UpdateByPersonId(Person.Id, address);
             Close();
-        }      
+        }
         else ClearFields();
     }
 

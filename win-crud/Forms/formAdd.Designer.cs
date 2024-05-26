@@ -29,6 +29,7 @@ partial class FormAdd
     private void InitializeComponent()
     {
         panel1 = new Panel();
+        btnSave = new Button();
         lblSubTitle2 = new Label();
         lblSubTitle = new Label();
         mtbCelPhone = new MaskedTextBox();
@@ -60,13 +61,13 @@ partial class FormAdd
         lblCPF = new Label();
         lblPhone = new Label();
         lblLastName = new Label();
-        btnSave = new Button();
         panel1.SuspendLayout();
         SuspendLayout();
         // 
         // panel1
         // 
         panel1.BackColor = Color.FromArgb(128, 128, 255);
+        panel1.Controls.Add(btnSave);
         panel1.Controls.Add(lblSubTitle2);
         panel1.Controls.Add(lblSubTitle);
         panel1.Controls.Add(mtbCelPhone);
@@ -98,13 +99,27 @@ partial class FormAdd
         panel1.Controls.Add(lblCPF);
         panel1.Controls.Add(lblPhone);
         panel1.Controls.Add(lblLastName);
-        panel1.Controls.Add(btnSave);
         panel1.Dock = DockStyle.Fill;
         panel1.Location = new Point(5, 5);
         panel1.Margin = new Padding(0);
         panel1.Name = "panel1";
         panel1.Size = new Size(794, 570);
         panel1.TabIndex = 37;
+        // 
+        // btnSave
+        // 
+        btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        btnSave.BackColor = Color.FromArgb(196, 210, 245);
+        btnSave.Cursor = Cursors.Hand;
+        btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        btnSave.ForeColor = Color.White;
+        btnSave.Location = new Point(241, 478);
+        btnSave.Name = "btnSave";
+        btnSave.Size = new Size(312, 56);
+        btnSave.TabIndex = 15;
+        btnSave.Text = "Salvar";
+        btnSave.UseVisualStyleBackColor = false;
+        btnSave.Click += BtnSave_Click;
         // 
         // lblSubTitle2
         // 
@@ -319,7 +334,7 @@ partial class FormAdd
         label17.BackColor = Color.Transparent;
         label17.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
         label17.ForeColor = Color.White;
-        label17.Location = new Point(258, 16);
+        label17.Location = new Point(264, 16);
         label17.Margin = new Padding(0);
         label17.Name = "label17";
         label17.Size = new Size(267, 38);
@@ -462,21 +477,6 @@ partial class FormAdd
         lblLastName.TabIndex = 59;
         lblLastName.Text = "Sobrenome*";
         // 
-        // btnSave
-        // 
-        btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        btnSave.BackColor = Color.FromArgb(196, 210, 245);
-        btnSave.Cursor = Cursors.Hand;
-        btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        btnSave.ForeColor = Color.White;
-        btnSave.Location = new Point(240, 491);
-        btnSave.Name = "btnSave";
-        btnSave.Size = new Size(312, 61);
-        btnSave.TabIndex = 15;
-        btnSave.Text = "Salvar";
-        btnSave.UseVisualStyleBackColor = false;
-        btnSave.Click += BtnSave_Click;
-        // 
         // FormAdd
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -524,11 +524,11 @@ partial class FormAdd
     private TextBox txtLastName;
     private Label lblPhone;
     private Label lblLastName;
-    private Button btnSave;
     private MaskedTextBox mtbPhone;
     private MaskedTextBox mtbCPF;
     private Label lblCPF;
     private MaskedTextBox mtbCelPhone;
     private Label lblSubTitle;
     private Label lblSubTitle2;
+    private Button btnSave;
 }

@@ -28,8 +28,8 @@ partial class FormList
     /// </summary>
     private void InitializeComponent()
     {
-        DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-        DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormList));
         dgvPerson = new DataGridView();
         Id = new DataGridViewTextBoxColumn();
@@ -48,6 +48,7 @@ partial class FormList
         lblFirstName = new Label();
         txtSearchFirstName = new TextBox();
         lblFilter = new Label();
+        btnClean = new Button();
         btnSearch = new PictureBox();
         btnReport = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)dgvPerson).BeginInit();
@@ -68,24 +69,24 @@ partial class FormList
         dgvPerson.BorderStyle = BorderStyle.None;
         dgvPerson.CellBorderStyle = DataGridViewCellBorderStyle.None;
         dgvPerson.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-        dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        dataGridViewCellStyle3.BackColor = Color.FromArgb(128, 128, 255);
-        dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        dataGridViewCellStyle3.ForeColor = Color.FromArgb(235, 230, 255);
-        dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(128, 128, 255);
-        dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(235, 230, 255);
-        dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-        dgvPerson.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+        dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        dataGridViewCellStyle1.BackColor = Color.FromArgb(128, 128, 255);
+        dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        dataGridViewCellStyle1.ForeColor = Color.FromArgb(235, 230, 255);
+        dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(128, 128, 255);
+        dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(235, 230, 255);
+        dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+        dgvPerson.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
         dgvPerson.ColumnHeadersHeight = 35;
         dgvPerson.Columns.AddRange(new DataGridViewColumn[] { Id, FirstName, LastName, Age, Phone, Email, CPF });
-        dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        dataGridViewCellStyle4.BackColor = Color.White;
-        dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-        dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-        dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(235, 230, 255);
-        dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(100, 100, 180);
-        dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-        dgvPerson.DefaultCellStyle = dataGridViewCellStyle4;
+        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        dataGridViewCellStyle2.BackColor = Color.White;
+        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+        dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+        dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(235, 230, 255);
+        dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(100, 100, 180);
+        dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+        dgvPerson.DefaultCellStyle = dataGridViewCellStyle2;
         dgvPerson.Dock = DockStyle.Fill;
         dgvPerson.EnableHeadersVisualStyles = false;
         dgvPerson.GridColor = Color.LightGray;
@@ -180,10 +181,11 @@ partial class FormList
         plFiltro.Controls.Add(lblFirstName);
         plFiltro.Controls.Add(txtSearchFirstName);
         plFiltro.Controls.Add(lblFilter);
+        plFiltro.Controls.Add(btnClean);
         plFiltro.Location = new Point(9, 9);
         plFiltro.Margin = new Padding(0);
         plFiltro.Name = "plFiltro";
-        plFiltro.Size = new Size(447, 100);
+        plFiltro.Size = new Size(661, 100);
         plFiltro.TabIndex = 2;
         // 
         // mtbSearchAge
@@ -193,7 +195,7 @@ partial class FormList
         mtbSearchAge.Location = new Point(352, 68);
         mtbSearchAge.Mask = "00";
         mtbSearchAge.Name = "mtbSearchAge";
-        mtbSearchAge.Size = new Size(53, 27);
+        mtbSearchAge.Size = new Size(116, 27);
         mtbSearchAge.TabIndex = 87;
         mtbSearchAge.TextAlign = HorizontalAlignment.Center;
         // 
@@ -267,12 +269,26 @@ partial class FormList
         lblFilter.TabIndex = 82;
         lblFilter.Text = "Filtros";
         // 
+        // btnClean
+        // 
+        btnClean.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+        btnClean.BackColor = Color.FromArgb(196, 210, 245);
+        btnClean.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        btnClean.ForeColor = Color.White;
+        btnClean.Location = new Point(566, 56);
+        btnClean.Name = "btnClean";
+        btnClean.Size = new Size(92, 39);
+        btnClean.TabIndex = 15;
+        btnClean.Text = "Limpar";
+        btnClean.UseVisualStyleBackColor = false;
+        btnClean.Click += BtnClean_Click;
+        // 
         // btnSearch
         // 
         btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnSearch.Cursor = Cursors.Hand;
         btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-        btnSearch.Location = new Point(469, 67);
+        btnSearch.Location = new Point(693, 67);
         btnSearch.Margin = new Padding(0);
         btnSearch.Name = "btnSearch";
         btnSearch.Size = new Size(60, 42);
@@ -286,7 +302,7 @@ partial class FormList
         btnReport.Anchor = AnchorStyles.Top | AnchorStyles.Right;
         btnReport.Cursor = Cursors.Hand;
         btnReport.Image = (Image)resources.GetObject("btnReport.Image");
-        btnReport.Location = new Point(469, 9);
+        btnReport.Location = new Point(693, 9);
         btnReport.Margin = new Padding(0);
         btnReport.Name = "btnReport";
         btnReport.Size = new Size(60, 42);
@@ -339,4 +355,5 @@ partial class FormList
     private DataGridViewTextBoxColumn Email;
     private DataGridViewTextBoxColumn CPF;
     private Label lblFilter;
+    private Button btnClean;
 }

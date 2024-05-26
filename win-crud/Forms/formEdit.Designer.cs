@@ -100,20 +100,20 @@ partial class FormEdit
         panel1.Controls.Add(lblLastName);
         panel1.Controls.Add(btnUpdate);
         panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(10, 10);
+        panel1.Location = new Point(5, 5);
         panel1.Margin = new Padding(0);
         panel1.Name = "panel1";
-        panel1.Size = new Size(784, 610);
+        panel1.Size = new Size(794, 570);
         panel1.TabIndex = 37;
         // 
         // lblSubTitle2
         // 
-        lblSubTitle2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblSubTitle2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblSubTitle2.AutoSize = true;
         lblSubTitle2.BackColor = Color.Transparent;
         lblSubTitle2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
         lblSubTitle2.ForeColor = Color.White;
-        lblSubTitle2.Location = new Point(47, 311);
+        lblSubTitle2.Location = new Point(46, 303);
         lblSubTitle2.Margin = new Padding(0);
         lblSubTitle2.Name = "lblSubTitle2";
         lblSubTitle2.Size = new Size(91, 25);
@@ -141,7 +141,7 @@ partial class FormEdit
         mtbCelPhone.Location = new Point(398, 186);
         mtbCelPhone.Mask = "(99) 00000-0000";
         mtbCelPhone.Name = "mtbCelPhone";
-        mtbCelPhone.Size = new Size(370, 27);
+        mtbCelPhone.Size = new Size(390, 27);
         mtbCelPhone.TabIndex = 4;
         mtbCelPhone.TextAlign = HorizontalAlignment.Center;
         // 
@@ -156,21 +156,21 @@ partial class FormEdit
         // 
         // txtCountry
         // 
-        txtCountry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtCountry.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         txtCountry.Cursor = Cursors.Hand;
-        txtCountry.Location = new Point(549, 374);
+        txtCountry.Location = new Point(550, 359);
         txtCountry.Name = "txtCountry";
         txtCountry.PlaceholderText = "Digite seu país de origem";
-        txtCountry.Size = new Size(217, 27);
+        txtCountry.Size = new Size(237, 27);
         txtCountry.TabIndex = 10;
         // 
         // lblCountry
         // 
-        lblCountry.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblCountry.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblCountry.AutoSize = true;
         lblCountry.BackColor = Color.Transparent;
         lblCountry.ForeColor = Color.LightGray;
-        lblCountry.Location = new Point(549, 351);
+        lblCountry.Location = new Point(550, 336);
         lblCountry.Name = "lblCountry";
         lblCountry.Size = new Size(34, 20);
         lblCountry.TabIndex = 77;
@@ -178,22 +178,22 @@ partial class FormEdit
         // 
         // txtNumber
         // 
-        txtNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        txtNumber.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         txtNumber.Cursor = Cursors.Hand;
-        txtNumber.Location = new Point(672, 443);
+        txtNumber.Location = new Point(673, 428);
         txtNumber.Name = "txtNumber";
         txtNumber.PlaceholderText = "ex.: 123";
-        txtNumber.Size = new Size(94, 27);
+        txtNumber.Size = new Size(114, 27);
         txtNumber.TabIndex = 14;
         txtNumber.TextAlign = HorizontalAlignment.Center;
         // 
         // lblNumber
         // 
-        lblNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        lblNumber.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         lblNumber.AutoSize = true;
         lblNumber.BackColor = Color.Transparent;
         lblNumber.ForeColor = Color.LightGray;
-        lblNumber.Location = new Point(672, 417);
+        lblNumber.Location = new Point(673, 402);
         lblNumber.Name = "lblNumber";
         lblNumber.Size = new Size(63, 20);
         lblNumber.TabIndex = 76;
@@ -201,9 +201,9 @@ partial class FormEdit
         // 
         // txtUF
         // 
-        txtUF.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtUF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         txtUF.Cursor = Cursors.Hand;
-        txtUF.Location = new Point(549, 443);
+        txtUF.Location = new Point(550, 428);
         txtUF.Name = "txtUF";
         txtUF.PlaceholderText = "ex.: SP";
         txtUF.Size = new Size(94, 27);
@@ -212,11 +212,11 @@ partial class FormEdit
         // 
         // lblUF
         // 
-        lblUF.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblUF.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblUF.AutoSize = true;
         lblUF.BackColor = Color.Transparent;
         lblUF.ForeColor = Color.LightGray;
-        lblUF.Location = new Point(549, 417);
+        lblUF.Location = new Point(550, 402);
         lblUF.Name = "lblUF";
         lblUF.Size = new Size(26, 20);
         lblUF.TabIndex = 74;
@@ -224,9 +224,9 @@ partial class FormEdit
         // 
         // txtState
         // 
-        txtState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtState.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         txtState.Cursor = Cursors.Hand;
-        txtState.Location = new Point(299, 443);
+        txtState.Location = new Point(300, 428);
         txtState.Name = "txtState";
         txtState.PlaceholderText = "Digite seu estado";
         txtState.Size = new Size(233, 27);
@@ -234,11 +234,11 @@ partial class FormEdit
         // 
         // lblState
         // 
-        lblState.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblState.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblState.AutoSize = true;
         lblState.BackColor = Color.Transparent;
         lblState.ForeColor = Color.LightGray;
-        lblState.Location = new Point(300, 417);
+        lblState.Location = new Point(301, 402);
         lblState.Name = "lblState";
         lblState.Size = new Size(60, 20);
         lblState.TabIndex = 70;
@@ -246,9 +246,9 @@ partial class FormEdit
         // 
         // txtCity
         // 
-        txtCity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtCity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         txtCity.Cursor = Cursors.Hand;
-        txtCity.Location = new Point(45, 443);
+        txtCity.Location = new Point(46, 428);
         txtCity.Name = "txtCity";
         txtCity.PlaceholderText = "Digite sua cidade";
         txtCity.Size = new Size(237, 27);
@@ -256,11 +256,11 @@ partial class FormEdit
         // 
         // lblCity
         // 
-        lblCity.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblCity.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblCity.AutoSize = true;
         lblCity.BackColor = Color.Transparent;
         lblCity.ForeColor = Color.LightGray;
-        lblCity.Location = new Point(46, 417);
+        lblCity.Location = new Point(47, 402);
         lblCity.Name = "lblCity";
         lblCity.Size = new Size(62, 20);
         lblCity.TabIndex = 67;
@@ -268,9 +268,9 @@ partial class FormEdit
         // 
         // txtStreet
         // 
-        txtStreet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        txtStreet.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         txtStreet.Cursor = Cursors.Hand;
-        txtStreet.Location = new Point(298, 374);
+        txtStreet.Location = new Point(299, 359);
         txtStreet.Name = "txtStreet";
         txtStreet.PlaceholderText = "Digite seu endereço";
         txtStreet.Size = new Size(234, 27);
@@ -278,11 +278,11 @@ partial class FormEdit
         // 
         // lblStreet
         // 
-        lblStreet.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblStreet.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblStreet.AutoSize = true;
         lblStreet.BackColor = Color.Transparent;
         lblStreet.ForeColor = Color.LightGray;
-        lblStreet.Location = new Point(300, 351);
+        lblStreet.Location = new Point(301, 336);
         lblStreet.Name = "lblStreet";
         lblStreet.Size = new Size(101, 20);
         lblStreet.TabIndex = 66;
@@ -290,11 +290,11 @@ partial class FormEdit
         // 
         // lblZipCode
         // 
-        lblZipCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblZipCode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         lblZipCode.AutoSize = true;
         lblZipCode.BackColor = Color.Transparent;
         lblZipCode.ForeColor = Color.LightGray;
-        lblZipCode.Location = new Point(46, 351);
+        lblZipCode.Location = new Point(47, 336);
         lblZipCode.Name = "lblZipCode";
         lblZipCode.Size = new Size(40, 20);
         lblZipCode.TabIndex = 65;
@@ -302,9 +302,9 @@ partial class FormEdit
         // 
         // mtbZipCode
         // 
-        mtbZipCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        mtbZipCode.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
         mtbZipCode.Cursor = Cursors.Hand;
-        mtbZipCode.Location = new Point(45, 374);
+        mtbZipCode.Location = new Point(46, 359);
         mtbZipCode.Mask = "00000-000";
         mtbZipCode.Name = "mtbZipCode";
         mtbZipCode.Size = new Size(237, 27);
@@ -318,7 +318,7 @@ partial class FormEdit
         lblTitle.BackColor = Color.Transparent;
         lblTitle.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
         lblTitle.ForeColor = Color.White;
-        lblTitle.Location = new Point(258, 16);
+        lblTitle.Location = new Point(253, 16);
         lblTitle.Margin = new Padding(0);
         lblTitle.Name = "lblTitle";
         lblTitle.Size = new Size(303, 38);
@@ -364,7 +364,7 @@ partial class FormEdit
         mtbAge.Location = new Point(398, 252);
         mtbAge.Mask = "00";
         mtbAge.Name = "mtbAge";
-        mtbAge.Size = new Size(369, 27);
+        mtbAge.Size = new Size(389, 27);
         mtbAge.TabIndex = 7;
         mtbAge.TextAlign = HorizontalAlignment.Center;
         // 
@@ -417,7 +417,7 @@ partial class FormEdit
         txtLastName.Location = new Point(399, 121);
         txtLastName.Name = "txtLastName";
         txtLastName.PlaceholderText = "Digite seu sobrenome";
-        txtLastName.Size = new Size(369, 27);
+        txtLastName.Size = new Size(389, 27);
         txtLastName.TabIndex = 2;
         // 
         // lblCPF
@@ -461,9 +461,9 @@ partial class FormEdit
         btnUpdate.Cursor = Cursors.Hand;
         btnUpdate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
         btnUpdate.ForeColor = Color.White;
-        btnUpdate.Location = new Point(241, 509);
+        btnUpdate.Location = new Point(236, 483);
         btnUpdate.Name = "btnUpdate";
-        btnUpdate.Size = new Size(302, 76);
+        btnUpdate.Size = new Size(322, 56);
         btnUpdate.TabIndex = 15;
         btnUpdate.Text = "Atualizar";
         btnUpdate.UseVisualStyleBackColor = false;
@@ -474,12 +474,12 @@ partial class FormEdit
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(196, 210, 245);
-        ClientSize = new Size(804, 630);
+        ClientSize = new Size(804, 580);
         Controls.Add(panel1);
         FormBorderStyle = FormBorderStyle.None;
-        MinimumSize = new Size(804, 630);
+        MinimumSize = new Size(804, 580);
         Name = "FormEdit";
-        Padding = new Padding(10);
+        Padding = new Padding(5);
         Text = "formEdit";
         TransparencyKey = Color.White;
         Load += FormEdit_Load;

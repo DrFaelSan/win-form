@@ -53,7 +53,7 @@
             sidebar.Dock = DockStyle.Left;
             sidebar.Location = new Point(0, 0);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(250, 453);
+            sidebar.Size = new Size(250, 673);
             sidebar.TabIndex = 0;
             // 
             // pnList
@@ -137,12 +137,12 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.WhiteSmoke;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1062, 453);
+            ClientSize = new Size(1062, 673);
             Controls.Add(flowLayoutPanel2);
             Controls.Add(sidebar);
             IsMdiContainer = true;
             MaximizeBox = false;
-            MinimumSize = new Size(1080, 500);
+            MinimumSize = new Size(1080, 720);
             Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "WIN FORM CRUD";

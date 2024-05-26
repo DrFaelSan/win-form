@@ -155,6 +155,13 @@ public partial class FormList : Form
 
     //Relatório
     private void BtnReport_Click(object sender, EventArgs e)
-        =>  Report.BuildPersonReport(PersonsOnGrid);
+        => Report.BuildPersonReport(PersonsOnGrid);
 
+    private void BtnClean_Click(object sender, EventArgs e)
+    {
+        mtbSearchAge.Text = "";
+        txtSearchFirstName.Text = "";
+        mtbSearchCPF.Text = "";
+        LoadPersons(null);
+    }
 }
