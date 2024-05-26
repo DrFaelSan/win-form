@@ -1,5 +1,4 @@
-﻿using System.Data;
-using win_crud.DTOs;
+﻿using win_crud.DTOs;
 using win_crud.Model;
 using win_crud.Services.Interfaces;
 using win_crud.Utils;
@@ -9,47 +8,9 @@ public partial class FormList : Form
 {
     private readonly IPersonService _personService;
     private readonly IAddressService _addressService;
-    IEnumerable<Person> PersonsOnGrid { get; set; } = Enumerable.Empty<Person>();
-    FormEdit? formEdit;
-
-    public static DataTable DataSource
-    {
-        get
-        {
-            DataTable dataTable = new();
-            dataTable.Columns.Add("ID", typeof(int));
-            dataTable.Columns.Add("Nome", typeof(string));
-            dataTable.Columns.Add("Sobrenome", typeof(string));
-            dataTable.Columns.Add("Idade", typeof(ushort));
-            dataTable.Columns.Add("Telefone", typeof(string));
-            dataTable.Columns.Add("E-mail", typeof(string));
-            dataTable.Columns.Add("CPF", typeof(string));
-
-            return dataTable;
-        }
-    }
-
-    public ContextMenuStrip ContextMenu
-    {
-        get
-        {
-            // Criar o ContextMenuStrip
-            ContextMenuStrip contextMenuStrip = new();
-
-            // Adicionar itens de menu para edição e exclusão
-            ToolStripMenuItem editMenuItem = new("Editar");
-            ToolStripMenuItem deleteMenuItem = new("Excluir");
-
-            // Definir eventos de clique para os itens de menu
-            editMenuItem.Click += EditMenuItem_Click;
-            deleteMenuItem.Click += DeleteMenuItem_Click;
-
-            // Adicionar os itens de menu ao ContextMenuStrip
-            contextMenuStrip.Items.Add(editMenuItem);
-            contextMenuStrip.Items.Add(deleteMenuItem);
-            return contextMenuStrip;
-        }
-    }
+    private FormEdit? _formEdit;
+    private IEnumerable<Person> _personsOnGrid = Enumerable.Empty<Person>();
+    private PersonFilterDTO? _currentFilter;
 
     public FormList(IPersonService personService, IAddressService addressService)
     {
@@ -60,37 +21,18 @@ public partial class FormList : Form
 
     private void FormList_Load(object sender, EventArgs e)
     {
-        LoadPersons();
+        LoadPersons(_currentFilter);
         dgvPerson.ClearSelection();
         dgvPerson.ContextMenuStrip = ContextMenu;
         ControlBox = false;
     }
 
-    private void EditMenuItem_Click(object sender, EventArgs e)
-    {
-        var person = GetSelectedRow();
-        if (person is not null)
-        {
-            FormEdit_FormClosed(null, null);
-            if (formEdit is null)
-            {
-                formEdit = new FormEdit(person, _personService, _addressService);
-                formEdit.FormClosed += FormEdit_FormClosed;
-                formEdit.MdiParent = ParentForm;
-                formEdit.Dock = DockStyle.Fill;
-                formEdit.Show();
-            }
-            else
-                formEdit.Activate();
-        }
-    }
-
-    public void LoadPersons(PersonFilterDTO? filterDTO = null)
+    private void LoadPersons(PersonFilterDTO? filterDTO = null)
     {
         dgvPerson.Rows.Clear();
-        IEnumerable<Person> persons = _personService.GetAll(filterDTO);
-        PersonsOnGrid = persons;
-        foreach (Person person in persons)
+        _currentFilter = filterDTO ?? _currentFilter;
+        _personsOnGrid = _personService.GetAll(_currentFilter);
+        foreach (Person person in _personsOnGrid)
             dgvPerson.Rows.Add(person.Id,
                                 person.FirstName,
                                 person.LastName,
@@ -100,39 +42,75 @@ public partial class FormList : Form
                                 person.CPF);
     }
 
-    private void FormEdit_FormClosed(object? sender, FormClosedEventArgs e)
+    private void BtnReport_Click(object sender, EventArgs e)
     {
-        formEdit = null;
+        Report.BuildPersonReport(_personsOnGrid);
+    }
+
+    private void BtnClean_Click(object sender, EventArgs e)
+    {
+        mtbSearchAge.Text = "";
+        txtSearchFirstName.Text = "";
+        mtbSearchCPF.Text = "";
         LoadPersons();
+    }
+
+    private void BtnSearch_Click(object sender, EventArgs e)
+    {
+        ushort? age = ushort.TryParse(mtbSearchAge.Text, out ushort parsedAge) ? parsedAge : (ushort?)null;
+        _currentFilter = PersonFilterDTO.Create(txtSearchFirstName.Text, age, mtbSearchCPF.Text);
+        LoadPersons(_currentFilter);
+    }
+
+    private void EditMenuItem_Click(object sender, EventArgs e)
+    {
+        var person = GetSelectedPerson();
+        if (person != null)
+            ShowEditForm(person);
+    }
+
+    private void ShowEditForm(Person person)
+    {
+        if (_formEdit == null)
+        {
+            _formEdit = new FormEdit(person, _personService, _addressService);
+            _formEdit.FormClosed += (sender, e) => _formEdit = null;
+            _formEdit.MdiParent = ParentForm;
+            _formEdit.Dock = DockStyle.Fill;
+            _formEdit.Show();
+        }
+        else
+        {
+            _formEdit.Activate();
+        }
     }
 
     private void DeleteMenuItem_Click(object sender, EventArgs e)
     {
-        var person = GetSelectedRow();
-        if (person is not null)
+        var person = GetSelectedPerson();
+        if (person != null && ConfirmDeletePerson(person))
         {
-            DialogResult result = MessageBox.Show($"Tem certeza de que deseja excluir {person.FullName}?",
-                                                  $"Confirmar Exclusão da Pessoa {person.Id}",
-                                                  MessageBoxButtons.YesNo,
-                                                  MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                _personService.Delete(person.Id);
-                _addressService.DeleteByPersonId(person.Id);
-                dgvPerson.Rows.Remove(dgvPerson.SelectedRows[0]);
-            }
+            _personService.Delete(person.Id);
+            _addressService.DeleteByPersonId(person.Id);
+            LoadPersons(_currentFilter);
         }
-        else
-            MessageBox.Show("Nenhuma linha selecionada para excluir.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
     }
 
-    private Person? GetSelectedRow()
+    private static bool ConfirmDeletePerson(Person person)
+    {
+        DialogResult result = MessageBox.Show($"Tem certeza de que deseja excluir {person.FullName}?",
+                                              $"Confirmar Exclusão da Pessoa {person.Id}",
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Warning);
+        return result == DialogResult.Yes;
+    }
+
+    private Person? GetSelectedPerson()
     {
         if (dgvPerson.SelectedRows.Count > 0)
         {
             DataGridViewRow selectedRow = dgvPerson.SelectedRows[0];
-            var id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+            int id = Convert.ToInt32(selectedRow.Cells["ID"].Value);
             return _personService.GetById(id);
         }
         else
@@ -142,26 +120,20 @@ public partial class FormList : Form
         }
     }
 
-    //Filtrar Consulta
-    private void BtnSearch_Click(object sender, EventArgs e)
+    private ContextMenuStrip ContextMenu
     {
-        ushort? age = null;
-        if (ushort.TryParse(mtbSearchAge.Text, out ushort parsedAge))
-            age = parsedAge;
+        get
+        {
+            ContextMenuStrip contextMenuStrip = new();
+            ToolStripMenuItem editMenuItem = new("Editar");
+            ToolStripMenuItem deleteMenuItem = new("Excluir");
 
-        PersonFilterDTO filter = PersonFilterDTO.Create(txtSearchFirstName.Text, age, mtbSearchCPF.Text);
-        LoadPersons(filter);
-    }
+            editMenuItem.Click += EditMenuItem_Click;
+            deleteMenuItem.Click += DeleteMenuItem_Click;
 
-    //Relatório
-    private void BtnReport_Click(object sender, EventArgs e)
-        => Report.BuildPersonReport(PersonsOnGrid);
-
-    private void BtnClean_Click(object sender, EventArgs e)
-    {
-        mtbSearchAge.Text = "";
-        txtSearchFirstName.Text = "";
-        mtbSearchCPF.Text = "";
-        LoadPersons(null);
+            contextMenuStrip.Items.Add(editMenuItem);
+            contextMenuStrip.Items.Add(deleteMenuItem);
+            return contextMenuStrip;
+        }
     }
 }

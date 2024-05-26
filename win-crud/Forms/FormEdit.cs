@@ -6,20 +6,20 @@ public partial class FormEdit : Form
 {
     private readonly IPersonService _personService;
     private readonly IAddressService _addressService;
-    private readonly Person Person;
+    private readonly Person _person;
 
     public FormEdit(Person person, IPersonService personService, IAddressService addressService)
     {
         InitializeComponent();
         _personService = personService;
         _addressService = addressService;
-        Person = person;
+        _person = person;
         InitializeControls();
     }
 
-    public void InitializeControls()
+    private void InitializeControls()
     {
-        var address = _addressService.FindByPersonId(Person.Id);
+        var address = _addressService.FindByPersonId(_person.Id);
         txtStreet.Text = address?.Street;
         txtCity.Text = address?.City;
         txtState.Text = address?.State;
@@ -28,68 +28,40 @@ public partial class FormEdit : Form
         txtUF.Text = address?.UF;
         txtCountry.Text = address?.Country;
 
-        txtFirstName.Text = Person.FirstName;
-        txtLastName.Text = Person.LastName;
-        mtbAge.Text = Person.Age.ToString();
-        mtbPhone.Text = Person.Phone;
-        mtbCelPhone.Text = Person.CelPhone;
-        txtEmail.Text = Person.Email;
-        mtbCPF.Text = Person.CPF;
-    }
-
-    private void FormEdit_Load(object sender, EventArgs e)
-    {
-        ControlBox = false;
-        InitializeControls();
+        txtFirstName.Text = _person.FirstName;
+        txtLastName.Text = _person.LastName;
+        mtbAge.Text = _person.Age.ToString();
+        mtbPhone.Text = _person.Phone;
+        mtbCelPhone.Text = _person.CelPhone;
+        txtEmail.Text = _person.Email;
+        mtbCPF.Text = _person.CPF;
     }
 
     private void BtnUpdate_Click(object sender, EventArgs e)
     {
-        Address address = GetAddressFromForm();
-        Person person = GetPersonFromForm();
-
-        if (_addressService.IsValid(address) && _personService.IsValid(person))
+        try
         {
-            _personService.Update(Person.Id, person);
-            _addressService.UpdateByPersonId(Person.Id, address);
-            Close();
-        }
-        else ClearFields();
-    }
+            var address = GetAddressFromForm();
+            var person = GetPersonFromForm();
 
-    public void ClearFields()
-    {
-        ////Pessoa
-        //txtFirstName.Text = string.Empty;
-        //txtLastName.Text = string.Empty;
-        //txtEmail.Text = string.Empty;
-        //mtbCelPhone.Text = string.Empty;
-        //mtbPhone.Text = string.Empty;
-        //mtbCPF.Text = string.Empty;
-        //mtbAge.Text = string.Empty;
-
-        ////Endereço
-        //mtbZipCode.Text = string.Empty;
-        //txtStreet.Text = string.Empty;
-        //txtCountry.Text = string.Empty;
-        //txtCity.Text = string.Empty;
-        //txtState.Text = string.Empty;
-        //txtUF.Text = string.Empty;
-        //txtNumber.Text = string.Empty;
-
-        foreach (Control control in Controls)
-        {
-            if (control is TextBox textBox)
+            if (_addressService.IsValid(address) && _personService.IsValid(person))
             {
-                textBox.Clear();
+                _personService.Update(_person.Id, person);
+                _addressService.UpdateByPersonId(_person.Id, address);
+                Close();
             }
-            else if (control is MaskedTextBox maskedTextBox)
+            else
             {
-                maskedTextBox.Clear();
+                MessageBox.Show("Por favor, preencha todos os campos corretamente.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro ao atualizar os dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
-    public Person GetPersonFromForm()
+
+    private Person GetPersonFromForm()
     {
         _ = short.TryParse(mtbAge.Text, out short age);
 
@@ -105,7 +77,7 @@ public partial class FormEdit : Form
         };
     }
 
-    public Address GetAddressFromForm() => new()
+    private Address GetAddressFromForm() => new()
     {
         ZipCode = mtbZipCode.Text,
         Street = txtStreet.Text,

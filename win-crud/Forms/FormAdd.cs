@@ -6,7 +6,7 @@ public partial class FormAdd : Form
 {
     private readonly IPersonService _personService;
     private readonly IAddressService _addressService;
-    public event EventHandler<Person> PersonAdded;
+    public event EventHandler<Person>? PersonAdded;
 
     public FormAdd(IPersonService personService, IAddressService addressService)
     {
@@ -15,28 +15,42 @@ public partial class FormAdd : Form
         _addressService = addressService;
     }
 
-    private void FormAdd_Load(object sender, EventArgs e)
-    {
-        ControlBox = false;
-    }
-
     private void BtnSave_Click(object sender, EventArgs e)
     {
-        Address address = GetAddressForm();
-
-        Person? personResult = _personService.Create(GetPersonForm());
-        if (personResult is not null)
+        try
         {
-            address.PersonId = personResult.Id;
-            _addressService.Create(address);
-            Close();
+            Address address = GetAddressForm();
+            Person person = GetPersonForm();
+
+            if (_personService.IsValid(person) && _addressService.IsValid(address))
+            {
+                Person? addedPerson = _personService.Create(person);
+                if (addedPerson != null)
+                {
+                    address.PersonId = addedPerson.Id;
+                    _addressService.Create(address);
+                    PersonAdded?.Invoke(this, addedPerson);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao criar pessoa.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, preencha todos os campos corretamente.", "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        else ClearFields();
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ocorreu um erro ao salvar os dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
     public void ClearFields()
     {
-        //Pessoa
+        // Limpar campos de Pessoa
         txtFirstName.Text = string.Empty;
         txtLastName.Text = string.Empty;
         txtEmail.Text = string.Empty;
@@ -45,7 +59,7 @@ public partial class FormAdd : Form
         mtbCPF.Text = string.Empty;
         mtbAge.Text = string.Empty;
 
-        //Endereço
+        // Limpar campos de Endereço
         mtbZipCode.Text = string.Empty;
         txtStreet.Text = string.Empty;
         txtCountry.Text = string.Empty;
@@ -54,7 +68,8 @@ public partial class FormAdd : Form
         txtUF.Text = string.Empty;
         txtNumber.Text = string.Empty;
     }
-    public Person GetPersonForm() => new()
+
+    public Person GetPersonForm() => new Person
     {
         FirstName = txtFirstName.Text,
         LastName = txtLastName.Text,
@@ -64,7 +79,8 @@ public partial class FormAdd : Form
         Age = short.Parse(mtbAge.Text),
         CPF = mtbCPF.Text,
     };
-    public Address GetAddressForm() => new()
+
+    public Address GetAddressForm() => new Address
     {
         ZipCode = mtbZipCode.Text,
         Street = txtStreet.Text,

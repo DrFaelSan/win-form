@@ -490,7 +490,6 @@ partial class FormAdd
         Padding = new Padding(5);
         Text = "formAdd";
         TransparencyKey = Color.White;
-        Load += FormAdd_Load;
         panel1.ResumeLayout(false);
         panel1.PerformLayout();
         ResumeLayout(false);

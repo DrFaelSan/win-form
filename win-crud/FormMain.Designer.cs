@@ -68,6 +68,7 @@
             // 
             btnList.BackColor = Color.FromArgb(196, 210, 245);
             btnList.Cursor = Cursors.Hand;
+            btnList.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnList.ForeColor = Color.White;
             btnList.Image = (Image)resources.GetObject("btnList.Image");
             btnList.ImageAlign = ContentAlignment.MiddleLeft;
@@ -92,6 +93,7 @@
             // 
             btnAdd.BackColor = Color.FromArgb(196, 210, 245);
             btnAdd.Cursor = Cursors.Hand;
+            btnAdd.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             btnAdd.ForeColor = Color.White;
             btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageAlign = ContentAlignment.MiddleLeft;

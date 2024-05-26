@@ -43,4 +43,7 @@ public class PersonService : IPersonService
         
         return validationResult.IsValid;
     }
+
+    public ValidationResult GetErrors(Person person)
+        => _personValidator.Validate(person);
 }

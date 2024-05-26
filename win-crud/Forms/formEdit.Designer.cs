@@ -482,7 +482,6 @@ partial class FormEdit
         Padding = new Padding(5);
         Text = "formEdit";
         TransparencyKey = Color.White;
-        Load += FormEdit_Load;
         panel1.ResumeLayout(false);
         panel1.PerformLayout();
         ResumeLayout(false);
