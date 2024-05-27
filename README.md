@@ -41,8 +41,6 @@ Certifique-se de ajustar os valores conforme necessário para a sua configuraç�
 3. Na pasta
 
  ```shell
-  $ tree -a
-  .
   ├── instalador
   │   └── Install v1
   │       └── setup.exe
