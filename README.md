@@ -38,8 +38,8 @@ Se você estiver com o Visual Studio aberto enquanto define a variável de ambie
 
 Certifique-se de ajustar os valores conforme necessário para a sua configuração de banco de dados.
 
-3. Na pasta
-
+3. Na pasta **Instalador/Install v1/setup.exe** temos o arquivo executavel para instalação da aplicação.
+ 
  ```shell
   ├── instalador
   │   └── Install v1
@@ -49,3 +49,5 @@ Certifique-se de ajustar os valores conforme necessário para a sua configuraç�
 > **setup.exe** Este é o arquivo executável do instalador. Ele é o que os usuários irão executar para instalar o aplicativo em seus sistemas. Este arquivo geralmente contém todos os arquivos necessários para a instalação, como os binários do aplicativo, bibliotecas compartilhadas, recursos, etc.
 
 >**Observação Importante** O Sistema deve ser executado como administrador;
+
+4. Devemos iniciar o atalho **Win CRUD** que irá aparecer no Desktop e se o banco de dados passado na conection string existir o sistema fará as migrations necessárias e apresentará os formulários.
