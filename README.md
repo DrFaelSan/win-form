@@ -6,6 +6,18 @@
 
 ## Sobre
 
+Sistema de Gestão para pessoas, nesse sistema conseguimos fazer a adição, edição, exclusão e listagem de pessoas.
+Um pessoa pode ter um endereço, geramos também um relatório da listagem de pessoas e conseguimos filtrar a listagem com Nome, CPF e Idade.
+
+#### Segue imagens: 
+
+<img src="https://raw.githubusercontent.com/DrFaelSan/win-form/main/win-crud/Instalador/WinCRUDSetup/Assets/list.png" alt="Listagem">
+<img src="https://raw.githubusercontent.com/DrFaelSan/win-form/main/win-crud/Instalador/WinCRUDSetup/Assets/add.png" alt="Cadastro">
+<img src="https://raw.githubusercontent.com/DrFaelSan/win-form/main/win-crud/Instalador/WinCRUDSetup/Assets/edit.png" alt="Edição">
+<img src="https://raw.githubusercontent.com/DrFaelSan/win-form/main/win-crud/Instalador/WinCRUDSetup/Assets/context-menu.png" alt="ContextMenu">
+<img src="https://raw.githubusercontent.com/DrFaelSan/win-form/main/win-crud/Instalador/WinCRUDSetup/Assets/report.png" alt="Relatório">
+
+
 ## Configurações de instalação
 
 1. Antes de executar o aplicativo, você precisa criar um banco de dados com o nome **win_crud_app**. 
@@ -26,4 +38,11 @@ Se você estiver com o Visual Studio aberto enquanto define a variável de ambie
 
 Certifique-se de ajustar os valores conforme necessário para a sua configuração de banco de dados.
 
+3. Na pasta
+  |-instalador
+    |-Install v1
+      |- setup.exe
+   
+> **setup.exe** Este é o arquivo executável do instalador. Ele é o que os usuários irão executar para instalar o aplicativo em seus sistemas. Este arquivo geralmente contém todos os arquivos necessários para a instalação, como os binários do aplicativo, bibliotecas compartilhadas, recursos, etc.
 
+>**Observação Importante** O Sistema deve ser executado como administrador;
