@@ -39,9 +39,14 @@ Se você estiver com o Visual Studio aberto enquanto define a variável de ambie
 Certifique-se de ajustar os valores conforme necessário para a sua configuração de banco de dados.
 
 3. Na pasta
-  |-instalador
-    |-Install v1
-      |- setup.exe
+
+ ```shell
+  $ tree -a
+  .
+  ├── instalador
+  │   └── Install v1
+  │       └── setup.exe
+ ```
    
 > **setup.exe** Este é o arquivo executável do instalador. Ele é o que os usuários irão executar para instalar o aplicativo em seus sistemas. Este arquivo geralmente contém todos os arquivos necessários para a instalação, como os binários do aplicativo, bibliotecas compartilhadas, recursos, etc.
 
