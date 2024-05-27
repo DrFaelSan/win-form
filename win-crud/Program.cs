@@ -24,8 +24,22 @@ internal static class Program
 
         using (var scope = container.BeginLifetimeScope())
         {
-            var dbContext = scope.Resolve<SQLServerContext>();
-            dbContext.Database.Migrate();
+            try
+            {
+                var dbContext = scope.Resolve<SQLServerContext>();
+                dbContext.Database.Migrate();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Não foi possível se conectar ao banco de dados, verifique a variável de ambiente DB_STRING.", 
+                                $"Erro ao conectar com banco de dados", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Error);
+                MessageBox.Show($"Error: \n\n{ex.Message}",
+                                $"Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         ApplicationConfiguration.Initialize(container);
