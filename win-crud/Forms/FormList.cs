@@ -52,7 +52,7 @@ public partial class FormList : Form
         mtbSearchAge.Text = "";
         txtSearchFirstName.Text = "";
         mtbSearchCPF.Text = "";
-        LoadPersons();
+        BtnSearch_Click(this, new EventArgs{});
     }
 
     private void BtnSearch_Click(object sender, EventArgs e)
@@ -74,7 +74,10 @@ public partial class FormList : Form
         if (_formEdit == null)
         {
             _formEdit = new FormEdit(person, _personService, _addressService);
-            _formEdit.FormClosed += (sender, e) => _formEdit = null;
+            _formEdit.FormClosed += (sender, e) => { 
+                _formEdit = null; 
+                LoadPersons(_currentFilter); 
+            };
             _formEdit.MdiParent = ParentForm;
             _formEdit.Dock = DockStyle.Fill;
             _formEdit.Show();
