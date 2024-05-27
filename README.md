@@ -1,10 +1,8 @@
-# Instruções de Execução do Aplicativo Windows Forms
+# WIN CRUD - Windows Forms
 
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 ![.NET](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-000?style=for-the-badge&logo=windows&logoColor=2CA5E0)
-
-Este README fornece instruções sobre como executar o aplicativo Windows Forms "win-crud".
 
 ## Sobre
 
